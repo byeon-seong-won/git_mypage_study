@@ -1,0 +1,65 @@
+
+
+
+/*---------- todolist style ----------*/
+
+.todoWrap {display: flex;}
+.todolist li.click {display: none;}
+.todolist li.unclick {display: block;}
+/* 체크시 */
+.todolist li.chk {text-decoration: line-through;}
+.todolist li.unchk {text-decoration: none;}
+.todolist li.chk .xichk {
+  background-color: #333;
+  color: #fff;
+}
+.todolist li.unchk .xichk {
+  background-color: transparent;
+  color: #333;
+}
+.todolist li span.xichk {
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+
+.todolistwrap {display: flex;}
+.todolistwrap>div {display: flex;flex-direction: column;flex: 1;}
+.todolistwrap>div.rightCont>div.inputList {display: flex;column-gap: 10px;}
+.todolistwrap>div.rightCont>div.inputList>input {flex: 3; border: 1px solid #ddd;padding-left: 10px;border-radius: 5px;}
+.todolistwrap>div.rightCont>div.inputList>input::placeholder {color: #aaa;}
+.todolistwrap>div.rightCont>div.inputList>button {border: 1px solid #000;background-color: #32364a;padding: 10px 30px;border-radius: 5px;color: #fff;}
+.todolistwrap>div.rightCont>div.inputList {display: flex;}
+.todolistwrap>div.rightCont>div.todolist {flex: 1;margin-top: 25px;background-color: #fff;border-radius: 20px;padding: 20px;}
+.todolistwrap>div.rightCont>div.todolist>h4 {font-size: 30px;font-weight: bold;color: #333;}
+.todolistwrap>div.rightCont>div.todolist>div {display: flex;margin-top: 15px;align-items: center;position: relative;}
+.todolistwrap>div.rightCont>div.todolist>div>span.check {display: inline-block;margin-right: 10px;font-size: 25px;cursor: pointer;}
+.todolistwrap>div.rightCont>div.todolist>div>span:nth-child(2).chk {text-decoration: line-through;}
+.todolistwrap>div.rightCont>div.todolist>div>span:nth-child(2).none {text-decoration: none;}
+/* .todolistwrap>div.rightCont>div.todolist>div>span.title:before {
+  content: "\e94f";
+  font-family: xeicon; 
+  position: absolute;
+  font-weight: bold;
+  font-size: 19px;
+  color: #333;
+  padding-right: 30px;
+} */
+.todolistwrap>div.rightCont>div.todolist>div>button {font-size:20px;background-color: transparent;border: none;position: absolute;right: 5px;}
+
+
+
+
+
+
+/* 수정클릭시 input box */
+/* .todolist span.none {display: none;} */
+.todolist span.block {display: block;}
+.todolist li input.none {display: none;}
+.todolist li input.block {display: block;}
+
+
+
+
+/* calendar */
+.highlight {background-color: #f3a95f;}

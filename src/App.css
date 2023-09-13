@@ -1,0 +1,100 @@
+@import url(common.css);
+@import url(todolist.css);
+/* @import url(memo.css); */
+@import url(main.css);
+
+
+
+
+/* body {height: 100vh;} */
+
+
+
+
+/* 배경 색상 변경 */
+.wrap {background-color: #f3f6f7;width: 100%;margin: 0 auto;display: flex;height: 100vh;}
+.button {position: absolute;bottom: 50px;display: flex;row-gap: 10px;justify-content: space-between;width: 80%;}
+.button button {flex: 1;border: 1px solid #fff;border-radius: 5px;cursor: pointer;margin-right: 5px;color: #fff;padding: 5px 8px;background-color: transparent;}
+.button button:hover {background-color: #fff;color: #282b3d;}
+
+
+
+
+
+/*---------- menu style ----------*/
+.menu {
+  flex: 0.5;
+  padding: 20px;
+  background-color: #282b3d;
+  margin: 0;
+  position: relative;
+  height: 100vh;
+}
+.menu.light {background-color: #f3f6f7;}
+.menu.light li.none {color: #333;}
+.menu.light li.on {color: #333;font-weight: bold;}
+
+
+
+
+
+.menu.dark {background: #282b3d;}
+.menu li {
+  list-style-type: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  column-gap: 10px;
+}
+.menu.dark li:hover {color: #f3f6f7;font-weight: bold;}
+.menu.dark li.on {color: #f3f6f7;font-weight: bold;background-color: #32364a;}
+.menu.dark li.none {color: #f3f6f7;font-weight: 500;}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+.menu li>span:nth-child(1) {display: inline-block;width: 30px;}
+
+
+
+
+
+/* 오른쪽 컨텐츠 여백 */
+.contWrap {padding: 100px 50px;flex: 3;height: 100vh;}
+.contWrap.light {background-color: #f3f6f7;}
+.contWrap.dark {background: #282b3d;}
+
+
+/* 컨텐츠 상단 제목 */
+.tabTitle {font-size: 50px;font-family: 'Anton', sans-serif;}
+/* .tabTitle.dark {color: #282b3d;}
+.tabTitle.light {color: #f3f6f7;} */
+
+.Tabcont h4 {margin: 0;}
+
+
+
+
+
+@media (min-width:360px) and (max-width:1024px) {
+
+  .wrap {flex-direction: column;}
+  .menu ul {display: flex;}
+  .menu li>span:nth-child(1) {display: none;}
+}
+
+
+
+
+
+
