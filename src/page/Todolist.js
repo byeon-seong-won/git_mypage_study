@@ -1,21 +1,31 @@
 import moment from 'moment';  //현재 시간 사용
 import { useSelector, useDispatch} from 'react-redux'
+import { useState } from 'react';
 import 'moment/locale/ko';
-import { todoActions  } from '../store/store.js'
-
-
-const nowTime = moment().format('MM-DD');
+import { todoActions } from '../store/store.js'
 
 
 
 
 function Todolist () {
     
-    let todos = useSelector((state) => {return state.todo.lists})
+    let todolist = useSelector((state) => {return state.todo.lists})
+    let todoDonelist = useSelector((state) => {return state.todo.done})
     let dispatch = useDispatch()
-    let input = '';
-    let modiInput = '';
-
+    const [input, setInput] = useState('')
+    const nowTime = moment().format('MM-DD');
+    const [chk, setChk] = useState('')
+    const [chcheck, setChcheck] = useState(false)
+    
+    // const checking = () => {
+    //     if(chcheck == true) {
+    //         setChk('chk')
+    //     } else {
+    //         setChk('none')
+    //     }
+    // }
+    // let addpro = shoes[id]
+    // dispatch(cartActions.addItem(addpro))
 
     return(
         <div className='todolistwrap'>
@@ -24,27 +34,32 @@ function Todolist () {
             </div>
             <div className='rightCont'>
                 <div className='inputList'>
-                    <input type="text" placeholder="할일을 입력하세요" onChange={(e)=> {input = e.target.value}}/>
-                    <button onClick={()=> {dispatch(todoActions.todo_add(input, nowTime))} }>추가</button>
+                    <input type="text" placeholder="할일을 입력하세요" onChange={(e)=> {setInput(e.target.value)}}/>
+                    <button onClick={()=> {dispatch(todoActions.todoAdd(input, nowTime))} }>추가</button>
                 </div>
                 <div className="todolist">
                     <h4> 할일 </h4>
                     {
-                        todos.map(function(a,i) {
-                            return(
+                        todolist.map(function(a,i) {
+                            return (
                                 <div>
                                     {/* { todoInput.status == true ? 
                                     <Showinput todochg={todochg}  todoInput={todoInput} todolist={todolist}></Showinput> : null } */}
                                     {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                     {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
-                                    <span>
-                                        {todos[i].do} | {todos[i].id} | {todos[i].date}
+                                    <span className='xi-check' onClick={()=> { 
+                                        let todoadd = todolist[i]
+                                        dispatch(todoActions.todoDone(todoadd));
+                                        setChcheck(true);
+                                    }}></span>
+                                    <span className={chk}>
+                                        {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
                                     </span>
                                     
                                     {/* <button onClick={()=>{props.showInput(true,     i); console.log(props.todoInput)}}  >수정누르면 inputbox</button> */}
                                     
                                     <button onClick={() =>
-                                         {dispatch(todoActions.todo_remove(todos[i].id))} }>
+                                        { dispatch(todoActions.todoRemove(i)) } }>
                                         <span className='xi-close-min'></span>
                                     </button>
                                 </div>
@@ -53,22 +68,22 @@ function Todolist () {
                     }
                 </div>
 
-                {/* <div className="todolist">
+                <div className="todolist">
                     <h4> 완료된 항목 </h4>
                     {
-                        tododonelist.map(function(a,i) {
+                        todoDonelist.map(function(a,i) {
                             return(
                                 <div>
 
-                                    <span onClick={() => {modidone(tododonelist[i].id); console.log(tododonelist[i].id)}} className='title'>
-                                        {tododonelist[i].do} {tododonelist[i].id}
+                                    <span className='title'>
+                                        {todoDonelist[i].do} {todoDonelist[i].id} {todoDonelist[i].date}
                                     </span>
 
                                 </div>
                             )
                         })
                     }
-                </div> */}
+                </div>
             </div>
         </div>
     )

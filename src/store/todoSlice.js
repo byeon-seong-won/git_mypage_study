@@ -1,8 +1,6 @@
 
 import {createSlice} from '@reduxjs/toolkit'
-import 'moment/locale/ko';
-import moment from 'moment';  //현재 시간 사용
-const nowTime = moment().format('MM-DD');
+
 
 
 
@@ -18,6 +16,7 @@ const todoinitialState = {
             id : 0,
             do : "영화보기",
             date : '06-28',
+
 
         },
         {
@@ -38,20 +37,18 @@ const todoinitialState = {
             id : '',
             do : '',
             date : '',
-            status : ''
+
         }
     ]
 };
 
 let currId = todoinitialState.lists.length;
-
-
 let todoSlice = createSlice({
     name : 'todo',
     initialState : todoinitialState,
     reducers : {
         // 리스트 추가
-        todo_add : {
+        todoAdd : {
             reducer: (state, action) => {
                 state.lists.push(action.payload)
             },
@@ -68,13 +65,21 @@ let todoSlice = createSlice({
         },
 
         // 리스트 삭제
-
-        todo_remove(state, action) {
-            state.splice(action.payload,1)
+        todoRemove(state, action) {
+            state.lists.splice(action.payload,1)
         },
-        // todo_done(state,action) {
-            
-        // }
+
+        // 리스트 완료항목 이동
+        todoDone(state,action) {
+            let listarr = state.lists.filter((x) => x.do !== action.payload.do)
+            let exi = state.lists.findIndex( (x)=> {return x.do == action.payload.do})
+
+            let donearr = state.lists[exi]
+
+            state.done.push(donearr)
+            state.lists = listarr
+   
+        }
 
     }
 })

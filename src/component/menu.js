@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { setbgActions, settabidxActions } from '../store/store.js'
 import { useSelector, useDispatch} from 'react-redux'
 // import styled from 'styled-components'
@@ -9,14 +10,12 @@ function Menu({menu}) {
 
   let bg = useSelector((state) => {return state.bg})
   let tabidx = useSelector((state) => {return state.tabidx})
-
+  let dispatch = useDispatch()
+  const [curidx, setcurIdx] = useState(0)
   // const {counter, person }  = useSelector(state => ({
   //   count : state.counterReducer.count,
   //   person: state.personReducer.person,
   // }));
-
-
-  let dispatch = useDispatch()
 
 
     return (
@@ -25,8 +24,8 @@ function Menu({menu}) {
             {
               menu.map(function(a,i) {
                 return(
-                  <li onClick={()=> {dispatch(settabidxActions.setTabidx(i))} } 
-                    className={ tabidx == i? 'on' : 'none'}>
+                  <li onClick={()=> {dispatch(settabidxActions.setTabidx(i)); setcurIdx(i)} } 
+                    className={ curidx == i? 'on' : 'none'}>
                     <span class="xi-emoticon"></span>
                     <span> {menu[i]} </span>
                   </li>

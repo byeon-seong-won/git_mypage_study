@@ -5,6 +5,7 @@ import Cont  from './component/tabcont';
 import { useState } from 'react';
 
 
+
 // 전체 페이지
 const App = () => {
 
@@ -16,8 +17,6 @@ const App = () => {
   // })
 
   const [menu] = useState(['Home','Todo List','Sticker Memo'])
-
-
 
   return (
     <div className="wrap">
