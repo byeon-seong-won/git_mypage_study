@@ -9,7 +9,7 @@ import { useSelector, useDispatch} from 'react-redux'
 function Menu({menu}) {
 
   let bg = useSelector((state) => {return state.bg})
-  let tabidx = useSelector((state) => {return state.tabidx})
+  let tabidx = useSelector((state) => {return state.tabidx.id})
   let dispatch = useDispatch()
   const [curidx, setcurIdx] = useState(0)
   // const {counter, person }  = useSelector(state => ({
@@ -24,7 +24,9 @@ function Menu({menu}) {
             {
               menu.map(function(a,i) {
                 return(
-                  <li onClick={()=> {dispatch(settabidxActions.setTabidx(i)); setcurIdx(i)} } 
+                  <li onClick={()=> {
+                    dispatch(settabidxActions.setTabidx(i)); setcurIdx(i)
+                  } } 
                     className={ curidx == i? 'on' : 'none'}>
                     <span class="xi-emoticon"></span>
                     <span> {menu[i]} </span>
