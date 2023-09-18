@@ -29,7 +29,7 @@
 .todolistwrap>div.rightCont>div.inputList>input {flex: 3; border: 1px solid #ddd;padding-left: 10px;border-radius: 5px;}
 .todolistwrap>div.rightCont>div.inputList>input::placeholder {color: #aaa;}
 .todolistwrap>div.rightCont>div.inputList>button {border: 1px solid #000;background-color: #32364a;padding: 10px 30px;border-radius: 5px;color: #fff;}
-.todolistwrap>div.rightCont>div.inputList {display: flex;}
+
 .todolistwrap>div.rightCont>div.todolist {flex: 1;margin-top: 25px;background-color: #fff;border-radius: 20px;padding: 20px;}
 .todolistwrap>div.rightCont>div.todolist>h4 {font-size: 30px;font-weight: bold;color: #333;}
 .todolistwrap>div.rightCont>div.todolist>div {display: flex;margin-top: 15px;align-items: center;position: relative;}
