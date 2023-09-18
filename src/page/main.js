@@ -1,4 +1,6 @@
 import moment from 'moment';  //현재 시간 사용
+import { useSelector, useDispatch} from 'react-redux'
+import { todoActions } from '../store/store.js'
 import 'moment/locale/ko';
 const nowDate = moment().format('MM-DD');
 const today = moment().format('YYYY-MM-DD')
@@ -6,13 +8,14 @@ const today = moment().format('YYYY-MM-DD')
 
 
 const Main = () => {
-  // let todaytodo = todolist.filter((x) => x.date == nowDate)
+
+  let todolist = useSelector((state) => {return state.todo.lists})
+  let todaytodo = todolist.filter((x) => x.date == nowDate)
   // console.log(todaytodo)
 
   return (
     <div className="todaywrap">
-      <h1>메인입니다</h1>
-        {/* <div>
+        <div>
           <div className='imgCont'>
             <img src={process.env.PUBLIC_URL + '/indexMain.png'} alt="copy url" className='indexImg'/>
             <span>Today : {today}</span>
@@ -45,7 +48,7 @@ const Main = () => {
           <div className='weatherCont'>
 
           </div>
-        </div>      */}
+        </div>     
     </div>
     
   )
