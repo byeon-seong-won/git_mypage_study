@@ -11,7 +11,10 @@ let settabidxSlice = createSlice ({
     initialState : tabidxinitialState,
     reducers : {
         setTabidx (state,action) {
-            return state = action.payload
+            return {
+                ...state,
+                id : action.payload
+            }
         }
     }
 })
