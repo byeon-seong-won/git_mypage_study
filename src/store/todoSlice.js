@@ -14,14 +14,14 @@ const todoinitialState = {
     lists : [
         {
             id : 0,
-            do : "영화보기",
+            do : "영화 보기",
             date : '06-28',
 
 
         },
         {
             id : 1,
-            do : "운동가기",
+            do : "운동 가기",
             date : '06-29',
 
         },
@@ -50,7 +50,13 @@ let todoSlice = createSlice({
         // 리스트 추가
         todoAdd : {
             reducer: (state, action) => {
-                state.lists.push(action.payload)
+                let find = state.lists.findIndex( (x)=> {return x.do == action.payload.do})
+                if(find == -1) {
+                    state.lists.push(action.payload)
+                } else {
+                    alert("이미 추가되었습니다.")
+                    return;
+                }
             },
 
             prepare: (input, date) => {
@@ -71,8 +77,8 @@ let todoSlice = createSlice({
 
         // 리스트 완료항목 이동
         todoDone(state,action) {
-            let listarr = state.lists.filter((x) => x.do !== action.payload.do)
-            let exi = state.lists.findIndex( (x)=> {return x.do == action.payload.do})
+            let listarr = state.lists.filter((x) => x.id !== action.payload.id)
+            let exi = state.lists.findIndex( (x)=> {return x.id == action.payload.id})
 
             let donearr = state.lists[exi]
 
