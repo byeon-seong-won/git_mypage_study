@@ -4,6 +4,10 @@ import { useState } from 'react';
 import 'moment/locale/ko';
 import { todoActions } from '../store/store.js'
 
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css'; // css import
+
+
 
 
 
@@ -16,7 +20,7 @@ function Todolist () {
     const nowTime = moment().format('MM-DD');
     const [chk, setChk] = useState('')
     const [chcheck, setChcheck] = useState(false)
-    
+    const [value, onChange] = useState(new Date());
     // const checking = () => {
     //     if(chcheck == true) {
     //         setChk('chk')
@@ -30,7 +34,10 @@ function Todolist () {
     return(
         <div className='todolistwrap'>
             <div className='calendar'>
-                Calendar!
+            <Calendar onChange={onChange} value={value} />
+            <div className="text-gray-500 mt-4">
+           {moment(value).format("YYYY년 MM월 DD일")} 
+         </div>
             </div>
             <div className='rightCont'>
                 <div className='inputList'>
