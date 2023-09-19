@@ -64,24 +64,19 @@ function Todolist () {
                                             dispatch(todoActions.todoDone(todoadd));
                                             setChcheck(true);
                                         }}></span>
-    
                                         <span>
                                             {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
-                                        </span>
+                                        </span> 
+                                        <button onClick={()=> {setchecked(true)}} className='modibtn'>수정</button>
+                                        <button onClick={() =>
+                                            { dispatch(todoActions.todoRemove(i)) } }>
+                                            <span className='xi-close-min'></span>
+                                        </button>
                                     </div>
-                                    
-                                    { isChecked == true ? <input type='text' placeholder='수정해주세요'></input> : null } 
 
+                                    {/* 수정 클릭시 수정 input 박스 */}
+                                    { isChecked == true ? <Showinput></Showinput> : null } 
 
-
-                                    {/* <button onClick={()=>{props.showInput(true,     i); console.log(props.todoInput)}}  >수정누르면 inputbox</button> */}
-                                    
-                                    <button onClick={()=> {setchecked(true)}} className='modibtn'>수정</button>
-
-                                    <button onClick={() =>
-                                        { dispatch(todoActions.todoRemove(i)) } }>
-                                        <span className='xi-close-min'></span>
-                                    </button>
                                 </div>
                             )
                         })
@@ -111,20 +106,19 @@ function Todolist () {
 
 
 // 수정 클릭시 나타나는 input-box component
-// const Showinput = ({
-//     todochg, todoInput, todolist
-// }) => {
-//     return(
-//         <div>
-//             <input type="text" placeholder="수정할 항목을 입력하세요" 
-//             className={todoInput.id == todolist[0].id ? 'block ' : 'none'}
-//             onChange={(e)=>{modiInput = e.target.value}}/>
+const Showinput = () => {
+    return(
+        <div>
+            <input type="text" placeholder="수정해주세요" 
+            // className={todoInput.id == todolist[0].id ? 'block ' : 'none'}
+            // onChange={(e)=>{modiInput = e.target.value}}
+            />
 
-//             <button onClick={()=>{
-//             }}>최종수정</button>
-//         </div>
-//     )
-// }
+            <button onClick={()=>{
+            }}>수정완료</button>
+        </div>
+    )
+}
 
 
 export default Todolist
