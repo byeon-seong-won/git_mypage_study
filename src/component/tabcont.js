@@ -2,7 +2,7 @@
 import { useSelector, useDispatch} from 'react-redux'
 import { setbgActions, settabidxActions } from '../store/store.js'
 import Todolist from "../page/Todolist"
-import { Memo } from "../page/Memo"
+import Memo from "../page/Memo"
 import { Main } from '../page/main'
 import moment from 'moment';  //현재 시간 사용
 import { useEffect, useState } from 'react';
