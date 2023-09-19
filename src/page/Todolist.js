@@ -21,6 +21,10 @@ function Todolist () {
     const [chk, setChk] = useState('')
     const [chcheck, setChcheck] = useState(false)
     const [value, onChange] = useState(new Date());
+
+    const [isChecked, setchecked] = useState(false)
+
+
     // const checking = () => {
     //     if(chcheck == true) {
     //         setChk('chk')
@@ -54,17 +58,26 @@ function Todolist () {
                                     <Showinput todochg={todochg}  todoInput={todoInput} todolist={todolist}></Showinput> : null } */}
                                     {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                     {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
-                                    <span className='xi-check' onClick={()=> { 
-                                        let todoadd = todolist[i]
-                                        dispatch(todoActions.todoDone(todoadd));
-                                        setChcheck(true);
-                                    }}></span>
-                                    <span className={chk}>
-                                        {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
-                                    </span>
+                                    <div className={isChecked == true ? 'display' : 'none'}>
+                                        <span className='xi-check' onClick={()=> { 
+                                            let todoadd = todolist[i]
+                                            dispatch(todoActions.todoDone(todoadd));
+                                            setChcheck(true);
+                                        }}></span>
+    
+                                        <span>
+                                            {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
+                                        </span>
+                                    </div>
                                     
+                                    { isChecked == true ? <input type='text' placeholder='수정해주세요'></input> : null } 
+
+
+
                                     {/* <button onClick={()=>{props.showInput(true,     i); console.log(props.todoInput)}}  >수정누르면 inputbox</button> */}
                                     
+                                    <button onClick={()=> {setchecked(true)}} className='modibtn'>수정</button>
+
                                     <button onClick={() =>
                                         { dispatch(todoActions.todoRemove(i)) } }>
                                         <span className='xi-close-min'></span>
