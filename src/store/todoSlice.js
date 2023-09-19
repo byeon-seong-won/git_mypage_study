@@ -75,6 +75,10 @@ let todoSlice = createSlice({
             state.lists.splice(action.payload,1)
         },
 
+        // todoModi(state, action) {
+        //     state.lists.splice(action.payload,1)
+        // },
+
         // 리스트 완료항목 이동
         todoDone(state,action) {
             let listarr = state.lists.filter((x) => x.id !== action.payload.id)
