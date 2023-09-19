@@ -23,6 +23,12 @@
 }
 
 
+.todolist>div>div {border: 1px solid #000;}
+.todolist>div>div.display {display: none;}
+.todolist>div>div.none {display: block;}
+
+
+
 .todolistwrap {display: flex;}
 .todolistwrap>div {display: flex;flex-direction: column;flex: 1;}
 .todolistwrap>div.rightCont>div.inputList {display: flex;column-gap: 10px;}
@@ -46,7 +52,7 @@
   padding-right: 30px;
 } */
 .todolistwrap>div.rightCont>div.todolist>div>button {font-size:20px;background-color: transparent;border: none;position: absolute;right: 5px;}
-
+.modibtn {border: 1px solid #000;right: 30px;}
 
 
 
