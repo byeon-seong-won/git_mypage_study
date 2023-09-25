@@ -80,21 +80,37 @@ let todoSlice = createSlice({
         // 리스트 수정
         todoModi : {
             reducer: (state, action) => {
-                console.log("id" + action.payload.id)
                 state.lists.splice(action.payload.id, 1, action.payload)
             },
 
-            prepare: (id, input, date,status) => {
+            prepare: (id, input, date) => {
                 return {
                     payload: {
                         id : id,
                         do : input,
                         date : date,
+                    },
+                }
+            }     
+        },
+
+       // 리스트 수정 input 박스 display 
+       pushModi : {
+            reducer: (state, action) => {
+                let exi = state.lists.findIndex( (x)=> {return x.id == action.payload.id})
+                state.lists[exi].status = action.payload.status
+            },
+
+            prepare: (id, status) => {
+                return {
+                    payload: {
+                        id : id,
                         status : status
                     },
                 }
             }     
         },
+
 
         // 리스트 완료항목 이동
         todoDone(state,action) {
