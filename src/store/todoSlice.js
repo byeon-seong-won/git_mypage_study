@@ -16,19 +16,21 @@ const todoinitialState = {
             id : 0,
             do : "영화 보기",
             date : '06-28',
-
+            status : false
 
         },
         {
             id : 1,
             do : "운동 가기",
             date : '06-29',
+            status : false
 
         },
         {
             id : 2,
             do : "정처기 공부하기",
             date : '06-29',
+            status : false
 
         },
     ],
@@ -75,19 +77,36 @@ let todoSlice = createSlice({
             state.lists.splice(action.payload,1)
         },
 
-        // todoModi(state, action) {
-        //     state.lists.splice(action.payload,1)
-        // },
+        // 리스트 수정
+        todoModi : {
+            reducer: (state, action) => {
+                console.log("id" + action.payload.id)
+                state.lists.splice(action.payload.id, 1, action.payload)
+            },
+
+            prepare: (id, input, date,status) => {
+                return {
+                    payload: {
+                        id : id,
+                        do : input,
+                        date : date,
+                        status : status
+                    },
+                }
+            }     
+        },
 
         // 리스트 완료항목 이동
         todoDone(state,action) {
-            let listarr = state.lists.filter((x) => x.id !== action.payload.id)
+
             let exi = state.lists.findIndex( (x)=> {return x.id == action.payload.id})
-
-            let donearr = state.lists[exi]
-
-            state.done.push(donearr)
-            state.lists = listarr
+            let check = state.done.findIndex( (x)=> {return x.do == action.payload.do})
+            if(check !== -1) {
+                return;
+            } else if(exi !== -1){
+                let donearr = state.lists[exi]
+                state.done.push(donearr)
+            }
    
         }
 
