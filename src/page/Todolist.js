@@ -18,12 +18,18 @@ function Todolist () {
     let dispatch = useDispatch()
     const [input, setInput] = useState('')
     const nowTime = moment().format('MM-DD');
-    const [chk, setChk] = useState('')
-    const [chcheck, setChcheck] = useState(false)
     const [value, onChange] = useState(new Date());
+    // 수정
+    const [modi, setModi] = useState(false)
+    let modiStatus = useSelector((state) => {return state.todo.lists.status})
+    // 완료항목
+    const [chcheck, setChcheck] = useState(false)
+    const [chk, setChk] = useState('')
+    const [chkid, setChekid] = useState()
 
-    const [isChecked, setchecked] = useState(false)
-
+    const pushBtn = () => {
+        dispatch(todoActions.todoModi(true));
+    }
 
     // const checking = () => {
     //     if(chcheck == true) {
@@ -58,16 +64,16 @@ function Todolist () {
                                     <Showinput todochg={todochg}  todoInput={todoInput} todolist={todolist}></Showinput> : null } */}
                                     {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                     {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
-                                    <div className={isChecked == true ? 'display' : 'none'}>
+                                    <div className={modiStatus == true ? 'display' : 'none'}>
                                         <span className='xi-check' onClick={()=> { 
                                             let todoadd = todolist[i]
                                             dispatch(todoActions.todoDone(todoadd));
-                                            setChcheck(true);
+                                            setChcheck(true); setChekid(i);
                                         }}></span>
-                                        <span>
+                                        <span className={chkid == i? 'chk' : 'none'}>
                                             {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
                                         </span> 
-                                        <button onClick={()=> {setchecked(true)}} className='modibtn'>수정</button>
+                                        <button onClick={()=> {setChekid(i);}} className='modibtn'>수정</button>
                                         <button onClick={() =>
                                             { dispatch(todoActions.todoRemove(i)) } }>
                                             <span className='xi-close-min'></span>
@@ -75,8 +81,7 @@ function Todolist () {
                                     </div>
 
                                     {/* 수정 클릭시 수정 input 박스 */}
-                                    { isChecked == true ? <Showinput></Showinput> : null } 
-
+                                    { modiStatus == true ?  <Showinput id={i}></Showinput> : null } 
                                 </div>
                             )
                         })
@@ -89,11 +94,9 @@ function Todolist () {
                         todoDonelist.map(function(a,i) {
                             return(
                                 <div>
-
                                     <span className='title'>
                                         {todoDonelist[i].do} {todoDonelist[i].id} {todoDonelist[i].date}
                                     </span>
-
                                 </div>
                             )
                         })
@@ -106,15 +109,19 @@ function Todolist () {
 
 
 // 수정 클릭시 나타나는 input-box component
-const Showinput = () => {
+const Showinput = ({id}) => {
+    let dispatch = useDispatch()
+    const [input, setInput] = useState('')
+    const nowTime = moment().format('MM-DD');
+
     return(
         <div>
             <input type="text" placeholder="수정해주세요" 
             // className={todoInput.id == todolist[0].id ? 'block ' : 'none'}
-            // onChange={(e)=>{modiInput = e.target.value}}
+            onChange={(e)=>{setInput(e.target.value)}}
             />
 
-            <button onClick={()=>{
+            <button onClick={()=>{ dispatch(todoActions.todoModi(id, input, nowTime, false))
             }}>수정완료</button>
         </div>
     )
