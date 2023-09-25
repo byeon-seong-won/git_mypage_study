@@ -64,7 +64,7 @@ function Todolist () {
                                     <Showinput todochg={todochg}  todoInput={todoInput} todolist={todolist}></Showinput> : null } */}
                                     {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                     {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
-                                    <div className={ (modi == true) && (chkid == i) ? 'display' : 'none'}>
+                                    <div className={ modiStatus == true ? 'display' : 'none'}>
                                         <span className='xi-check' onClick={()=> { 
                                             let todoadd = todolist[i]
                                             dispatch(todoActions.todoDone(todoadd));
@@ -73,7 +73,7 @@ function Todolist () {
                                         <span className={chkid == i? 'chk' : 'none'}>
                                             {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
                                         </span> 
-                                        <button onClick={()=> {setModi(true);setChekid(i);}} className='modibtn'>수정</button>
+                                        <button onClick={()=> { dispatch(todoActions.pushModi(i,true)) }} className='modibtn'>수정</button>
                                         <button onClick={() =>
                                             { dispatch(todoActions.todoRemove(i)) } }>
                                             <span className='xi-close-min'></span>
@@ -81,7 +81,7 @@ function Todolist () {
                                     </div>
 
                                     {/* 수정 클릭시 수정 input 박스 */}
-                                    {  (modi == true) && (chkid == i) ?  <Showinput id={i}></Showinput> : null } 
+                                    {  modiStatus == true?  <Showinput id={i}></Showinput> : null } 
                                 </div>
                             )
                         })
@@ -121,7 +121,7 @@ const Showinput = ({id}) => {
             onChange={(e)=>{setInput(e.target.value)}}
             />
 
-            <button onClick={()=>{ dispatch(todoActions.todoModi(id, input, nowTime, false))
+            <button onClick={()=>{ dispatch(todoActions.todoModi(id, input, nowTime)); dispatch(todoActions.pushModi(id,false))
             }}>수정완료</button>
         </div>
     )
