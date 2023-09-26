@@ -21,15 +21,23 @@ function Todolist () {
     const [value, onChange] = useState(new Date());
     // 수정
     const [modi, setModi] = useState(false)
-    let modiStatus = useSelector((state) => {return state.todo.lists.status})
     // 완료항목
     const [chcheck, setChcheck] = useState(false)
     const [chk, setChk] = useState('')
     const [chkid, setChekid] = useState()
 
-    // const pushBtn = () => {
-    //     dispatch(todoActions.todoModi(true));
-    // }
+
+    // 완료항목
+    const [doneCont, setDonecont] = useState('')
+    const doneCheck = () => {
+        if(todoDonelist.length == 0) {
+            setDonecont('display')
+        } else if(todoDonelist.length !== 0) {
+            setDonecont('none')
+        }
+    }
+
+
 
     // const checking = () => {
     //     if(chcheck == true) {
@@ -64,16 +72,18 @@ function Todolist () {
                                     <Showinput todochg={todochg}  todoInput={todoInput} todolist={todolist}></Showinput> : null } */}
                                     {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                     {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
-                                    <div className={ modiStatus == true ? 'display' : 'none'}>
+                                    <div className={ todolist[i].status == true ? 'display' : 'none'}>
                                         <span className='xi-check' onClick={()=> { 
                                             let todoadd = todolist[i]
                                             dispatch(todoActions.todoDone(todoadd));
-                                            setChcheck(true); setChekid(i);
+                                            doneCheck();
+                                            setChcheck(true); 
+                                            setChekid(i);
                                         }}></span>
                                         <span className={chkid == i? 'chk' : 'none'}>
                                             {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
                                         </span> 
-                                        <button onClick={()=> { dispatch(todoActions.pushModi(i,true)) }} className='modibtn'>수정</button>
+                                        <button onClick={()=> { dispatch(todoActions.pushModi(i,true)); }} className='modibtn'>수정</button>
                                         <button onClick={() =>
                                             { dispatch(todoActions.todoRemove(i)) } }>
                                             <span className='xi-close-min'></span>
@@ -81,14 +91,14 @@ function Todolist () {
                                     </div>
 
                                     {/* 수정 클릭시 수정 input 박스 */}
-                                    {  modiStatus == true?  <Showinput id={i}></Showinput> : null } 
+                                    {  todolist[i].status == true?  <Showinput id={i}></Showinput> : null } 
                                 </div>
                             )
                         })
                     }
                 </div>
 
-                <div className="todolist">
+                <div className="todolist todonelist">
                     <h4> 완료된 항목 </h4>
                     {
                         todoDonelist.map(function(a,i) {
@@ -97,6 +107,10 @@ function Todolist () {
                                     <span className='title'>
                                         {todoDonelist[i].do} {todoDonelist[i].id} {todoDonelist[i].date}
                                     </span>
+                                    <span className={doneCont}>
+                                        <p>아직 완료된 항목이 없습니다!</p>
+                                    </span>
+
                                 </div>
                             )
                         })
