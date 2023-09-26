@@ -19,12 +19,18 @@ function Todolist () {
     const [input, setInput] = useState('')
     const nowTime = moment().format('MM-DD');
     const [value, onChange] = useState(new Date());
+
+
     // 수정
     const [modi, setModi] = useState(false)
-    // 완료항목
+
+
+
+    // 체크 클릭시 -> 완료항목
     const [chcheck, setChcheck] = useState(false)
     const [chk, setChk] = useState('')
     const [chkid, setChekid] = useState()
+
 
 
     // 완료항목
@@ -72,6 +78,7 @@ function Todolist () {
                                     <Showinput todochg={todochg}  todoInput={todoInput} todolist={todolist}></Showinput> : null } */}
                                     {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                     {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
+                                    
                                     <div className={ todolist[i].status == true ? 'display' : 'none'}>
                                         <span className='xi-check' onClick={()=> { 
                                             let todoadd = todolist[i]
