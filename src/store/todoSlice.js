@@ -53,10 +53,11 @@ let todoSlice = createSlice({
         todoAdd : {
             reducer: (state, action) => {
                 let find = state.lists.findIndex( (x)=> {return x.do == action.payload.do})
+
                 if(find == -1) {
                     state.lists.push(action.payload)
                 } else {
-                    alert("이미 추가되었습니다.")
+                    alert("이미 추가된 목록입니다.")
                     return;
                 }
             },
@@ -90,6 +91,7 @@ let todoSlice = createSlice({
                         id : id,
                         do : input,
                         date : date,
+                        status : false
                     },
                 }
             }     
