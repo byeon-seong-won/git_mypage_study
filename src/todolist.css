@@ -10,7 +10,7 @@
 
 .todolist>div>div {border: 1px solid #000;}
 .todolist>div>div.display {display: none;}
-.todolist>div>div.none {display: block;}
+.todolist>div>div.none {display: flex;justify-content: space-between;}
 
 
 
@@ -23,7 +23,7 @@
 
 .todolistwrap>div.rightCont>div.todolist {flex: 1;margin-top: 25px;background-color: #fff;border-radius: 20px;padding: 20px;}
 .todolistwrap>div.rightCont>div.todolist>h4 {font-size: 30px;font-weight: bold;color: #333;}
-.todolistwrap>div.rightCont>div.todolist>div {display: flex;margin-top: 15px;align-items: center;position: relative;}
+.todolistwrap>div.rightCont>div.todolist>div {margin-top: 15px;align-items: center;position: relative;}
 .todolistwrap>div.rightCont>div.todolist>div>span.check {display: inline-block;margin-right: 10px;font-size: 25px;cursor: pointer;}
 .todolistwrap>div.rightCont>div.todolist>div>span:nth-child(2).chk {text-decoration: line-through;}
 .todolistwrap>div.rightCont>div.todolist>div>span:nth-child(2).none {text-decoration: none;}
@@ -42,8 +42,11 @@
 
 
 /* 완료항목 */
+
 .todolist>div>div>span:nth-of-type(2).chk {text-decoration: line-through;}
 .todolist>div>div>span:nth-of-type(2).none {text-decoration: none;}
+
+.todolist>div>div>button:nth-of-type(1) {border: 1px solid #000;background-color: transparent;width: 30px;display: inline-block;}
 /* .todolist li.chk .xichk {
   background-color: #333;
   color: #fff;
@@ -67,6 +70,12 @@
 .todolist li input.none {display: none;}
 .todolist li input.block {display: block;}
 
+
+
+
+/* 완료항목 */
+.todonelist>div>span.display {display: block;}
+.todonelist>div>span.none{display: none;}
 
 
 
