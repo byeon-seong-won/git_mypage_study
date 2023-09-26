@@ -66,7 +66,8 @@ let todoSlice = createSlice({
                     payload: {
                         id : currId++,
                         do : input,
-                        date : date
+                        date : date,
+                        status : false
                     },
                 }
             }     
@@ -94,11 +95,11 @@ let todoSlice = createSlice({
             }     
         },
 
-       // 리스트 수정 input 박스 display 
-       pushModi : {
+        // 리스트 수정 input 박스 display 
+        pushModi : {
             reducer: (state, action) => {
-                let exi = state.lists.findIndex( (x)=> {return x.id == action.payload.id})
-                state.lists[exi].status = action.payload.status
+                let idx = state.lists.findIndex( (x)=> {return x.id == action.payload.id})
+                state.lists[idx].status = action.payload.status
             },
 
             prepare: (id, status) => {
