@@ -20,14 +20,12 @@ function Todolist () {
     const nowTime = moment().format('MM-DD');
     const [value, onChange] = useState(new Date());
 
-
     // 수정
     const [modi, setModi] = useState(false)
 
 
-
     // 체크 클릭시 -> 완료항목
-    const [chcheck, setChcheck] = useState(false)
+    // const [chcheck, setChcheck] = useState(false)
     const [chk, setChk] = useState('')
     const [chkid, setChekid] = useState()
 
@@ -45,13 +43,7 @@ function Todolist () {
 
 
 
-    // const checking = () => {
-    //     if(chcheck == true) {
-    //         setChk('chk')
-    //     } else {
-    //         setChk('none')
-    //     }
-    // }
+
     // let addpro = shoes[id]
     // dispatch(cartActions.addItem(addpro))
 
@@ -85,10 +77,9 @@ function Todolist () {
                                                 let todoadd = todolist[i]
                                                 dispatch(todoActions.todoDone(todoadd));
                                                 doneCheck();
-                                                setChcheck(true); 
                                                 setChekid(i);
                                             }}></span>
-                                            <span className={chkid == i? 'chk' : 'none'}>
+                                            <span className={todolist[i].done == true? 'chk' : 'none'}>
                                                 {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
                                             </span> 
                                             <button onClick={()=> { dispatch(todoActions.pushModi(i,true)); }} className='modibtn'>수정</button>
@@ -99,7 +90,7 @@ function Todolist () {
                                         </div>
     
                                         {/* 수정 클릭시 수정 input 박스 */}
-                                        {  todolist[i].status == true?  <Showinput id={i}></Showinput> : null } 
+                                        {  todolist[i].status == true? <Showinput id={i}></Showinput> : null } 
                                     </div>
                                 )
                             })
@@ -118,7 +109,6 @@ function Todolist () {
                                         <span className={doneCont}>
                                             <p>아직 완료된 항목이 없습니다!</p>
                                         </span>
-    
                                     </div>
                                 )
                             })

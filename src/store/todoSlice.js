@@ -16,21 +16,24 @@ const todoinitialState = {
             id : 0,
             do : "영화 보기",
             date : '06-28',
-            status : false
+            status : false,
+            done : false,
 
         },
         {
             id : 1,
             do : "운동 가기",
             date : '06-29',
-            status : false
+            status : false,
+            done : false,
 
         },
         {
             id : 2,
             do : "정처기 공부하기",
             date : '06-29',
-            status : false
+            status : false,
+            done : false,
 
         },
     ],
@@ -39,7 +42,8 @@ const todoinitialState = {
             id : '',
             do : '',
             date : '',
-
+            status : '',
+            done : '',
         }
     ]
 };
@@ -122,8 +126,9 @@ let todoSlice = createSlice({
             let check = state.done.findIndex( (x)=> {return x.do == action.payload.do})
             if(check !== -1) {
                 return;
-            } else if(exi !== -1){
+            } else if(exi !== -1) {
                 let donearr = state.lists[exi]
+                state.lists[exi].done = true;
                 state.done.push(donearr)
             }
    
