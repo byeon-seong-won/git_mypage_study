@@ -61,7 +61,8 @@ let todoSlice = createSlice({
                 if(find == -1) {
                     state.lists.push(action.payload)
                 } else {
-                    alert("이미 추가된 목록입니다.")
+                    alert("이미 추가된 목록입니다.");
+                    currId--;
                     return;
                 }
             },
@@ -72,7 +73,8 @@ let todoSlice = createSlice({
                         id : currId++,
                         do : input,
                         date : date,
-                        status : false
+                        status : false,
+                        done : false
                     },
                 }
             }     
@@ -95,7 +97,8 @@ let todoSlice = createSlice({
                         id : id,
                         do : input,
                         date : date,
-                        status : false
+                        status : false,
+                        done : false
                     },
                 }
             }     
