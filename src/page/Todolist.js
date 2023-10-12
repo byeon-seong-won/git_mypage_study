@@ -72,21 +72,26 @@ function Todolist () {
                                         {/* <span className="xi-check-circle-o check" onClick={() => {tododone(todolist[i].id);}} ></span> */}
                                         {/* <span className={todoInput.id == i ?  'none ' : 'block'}> */}
                                         
-                                        <div className={ todolist[i].status == true ? 'display' : 'none'}>
+                                        <div className={`
+                                             ${todolist[i].status ? 'display' : 'none'} 
+                                             ${todolist[i].done ? 'chk' : 'nochk'}
+                                            `}>
                                             <span className='xi-check' onClick={()=> { 
                                                 let todoadd = todolist[i]
                                                 dispatch(todoActions.todoDone(todoadd));
                                                 doneCheck();
                                                 setChekid(i);
                                             }}></span>
-                                            <span className={todolist[i].done == true? 'chk' : 'none'}>
+                                            <span>
                                                 {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
                                             </span> 
-                                            <button onClick={()=> { dispatch(todoActions.pushModi(i,true)); }} className='modibtn'>수정</button>
-                                            <button onClick={() =>
-                                                { dispatch(todoActions.todoRemove(i)) } }>
-                                                <span className='xi-close-min'></span>
-                                            </button>
+                                            <div className='btnWrap'>
+                                                <button onClick={()=> { dispatch(todoActions.pushModi(i,true)); }} className='modibtn xi-pen'></button>
+                                                <button onClick={() =>
+                                                    { dispatch(todoActions.todoRemove(i)) } }>
+                                                    <span className='xi-close-min'></span>
+                                                </button>
+                                            </div>
                                         </div>
     
                                         {/* 수정 클릭시 수정 input 박스 */}
@@ -128,7 +133,7 @@ const Showinput = ({id}) => {
     const nowTime = moment().format('MM-DD');
 
     return(
-        <div>
+        <div className='modiInput'>
             <input type="text" placeholder="수정해주세요" 
             // className={todoInput.id == todolist[0].id ? 'block ' : 'none'}
             onChange={(e)=>{setInput(e.target.value)}}
