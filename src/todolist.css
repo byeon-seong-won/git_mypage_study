@@ -56,7 +56,7 @@
 /* .todolist>div>div>span:nth-of-type(2).chk {text-decoration: line-through;}
 .todolist>div>div>span:nth-of-type(2).none {text-decoration: none;} */
 
-.modiInput button {border: 1px solid #000;background-color: transparent;}
+.modiInput button {border: 1px solid #000;background-color: transparent;display: inline-block;}
 /* .todolist li.chk .xichk {
   background-color: #333;
   color: #fff;
