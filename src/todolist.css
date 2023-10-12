@@ -6,13 +6,19 @@
 .todoWrap {display: flex;}
 .todolist li.click {display: none;}
 .todolist li.unclick {display: block;}
-
+.todolist input[type="text"] {border: none;}
 
 
 .todolist>div>div.display {display: none;}
-.todolist>div>div.none {display: flex;padding: 10px 15px;border-radius: 8px;border: 1px solid #ddd;}
+.todolist>div>div.none {display: flex;}
 
+.todolist>div>div.chk {border-bottom: 1px solid #000;}
+.todolist>div>div.nochk {text-decoration: none;}
+.todolist>div>div.chk .btnWrap {display: none;}
+.todolist>div>div.nochk .btnWrap {display: block;position: absolute;right: 10px;top: 4px;}
 
+.todolist>div>div>span.xi-check {display: table;}
+.todolist>div>div>span.xi-check::before {display: table-cell;vertical-align: middle;}
 
 .todolistwrap {display: flex;}
 .todolistwrap>div {display: flex;flex-direction: column;flex: 1;}
@@ -24,7 +30,7 @@
 .todolistwrap>div.rightCont>div:nth-child(2) {display: flex;justify-content: space-between;column-gap: 30px;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist {flex: 1;margin-top: 25px;background-color: #fff;border-radius: 20px;padding: 20px;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>h4 {font-size: 30px;font-weight: bold;color: #333;}
-.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div {margin-top: 15px;align-items: center;position: relative;}
+.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {margin-top: 15px;align-items: center;position: relative;padding: 10px 15px;border-radius: 8px;border: 1px solid #ddd;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span.check {display: inline-block;margin-right: 10px;font-size: 25px;cursor: pointer;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).chk {text-decoration: line-through;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).none {text-decoration: none;}
@@ -37,17 +43,20 @@
   color: #333;
   padding-right: 30px;
 } */
-.todolistwrap>div.rightCont>div.todolist>div>button {font-size:20px;background-color: transparent;border: none;position: absolute;right: 5px;}
-.modibtn {border: 1px solid #000;right: 30px;}
+
+
+.todolist>div>div.nochk .btnWrap button {font-size:24px;background-color: transparent;border: none;}
+.todolist>div>div.nochk .btnWrap button:nth-child(2) {margin-left: 10px;}
+
 
 
 
 /* 완료항목 */
+.todolist>div>div>span:nth-of-type(2) {padding-left: 30px;}
+/* .todolist>div>div>span:nth-of-type(2).chk {text-decoration: line-through;}
+.todolist>div>div>span:nth-of-type(2).none {text-decoration: none;} */
 
-.todolist>div>div>span:nth-of-type(2).chk {text-decoration: line-through;}
-.todolist>div>div>span:nth-of-type(2).none {text-decoration: none;margin-left: 30px;}
-
-.todolist>div>div>button:nth-of-type(1) {border: 1px solid #000;background-color: transparent;width: 30px;display: inline-block;}
+.modiInput button {border: 1px solid #000;background-color: transparent;}
 /* .todolist li.chk .xichk {
   background-color: #333;
   color: #fff;
