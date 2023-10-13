@@ -32,9 +32,10 @@
 .menu.light {background-color: #f3f6f7;}
 .menu.light li.none {color: #333;}
 .menu.light li.on {color: #333;font-weight: bold;}
-
-
-
+.menu.light li {border: 0.12rem solid #333;}
+.menu.light li:hover {background-color: #333;color: #fff;}
+.menu.light .button button  {border: 0.12rem solid #333;color: #333;}
+.menu.light .button button:hover {background-color: #333;color: #fff;}
 
 
 .menu.dark {background: #282b3d;}
@@ -72,7 +73,7 @@
 .contWrap {padding: 100px 50px;flex: 3;}
 .contWrap.light {background-color: #f3f6f7;}
 .contWrap.dark {background: #282b3d;}
-
+.contWrap.dark .tabTitle {color: #fff;}
 
 /* 컨텐츠 상단 제목 */
 .tabTitle {font-size: 50px;font-family: 'Anton', sans-serif;}
