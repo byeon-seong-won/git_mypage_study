@@ -16,7 +16,7 @@
   height: 100%;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0,0.7));
 }
-.todaywrap>div>div.imgCont>span {position: absolute;top: 40px;right: 40px;color: #333;}
+.todaywrap>div>div.imgCont>span {color: #fff;background: #333;padding: 5px 10px;border-radius: 5px;position: absolute;top: 40px;right: 40px;}
 .todaywrap>div>div.imgCont>img.indexImg {width: 100%;border-radius: 20px;max-width: 1350px;margin: 0 auto;height: 500px}
 .todaywrap>div>div.imgCont>div {position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
 .todaywrap>div>div.imgCont>div>h1 {color: #fff;font-size: 72px;text-align: center;font-family: 'Anton', sans-serif;}
@@ -42,4 +42,4 @@
 
 
 /* 메인 - 날씨 컨텐츠 */
-.todaywrap>div>div.weatherCont {width: 100%;border-radius: 20px;max-width: 1350px;margin: 30px auto;background-color: #fff;height: 300px;}
+.todaywrap>div>div.weatherCont {width: 100%;border-radius: 20px;max-width: 1350px;margin: 30px auto;background-color: #fff;height: 300px;display: none;}

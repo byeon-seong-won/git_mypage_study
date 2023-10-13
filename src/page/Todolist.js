@@ -32,14 +32,14 @@ function Todolist () {
 
 
     // 완료항목
-    const [doneCont, setDonecont] = useState('')
-    const doneCheck = () => {
-        if(todoDonelist.length == 0) {
-            setDonecont('display')
-        } else if(todoDonelist.length !== 0) {
-            setDonecont('none')
-        }
-    }
+    const [doneCont, setDonecont] = useState(true)
+    // const doneCheck = () => {
+    //     if(doneCont == true) {
+    //         setDonecont('display')
+    //     } else {
+    //         setDonecont('none')
+    //     }
+    // }
 
 
 
@@ -77,13 +77,13 @@ function Todolist () {
                                              ${todolist[i].done ? 'chk' : 'nochk'}
                                             `}>
                                             <span className='xi-check' onClick={()=> { 
-                                                let todoadd = todolist[i]
-                                                dispatch(todoActions.todoDone(todoadd));
-                                                doneCheck();
+                                                let todone = todolist[i]
+                                                dispatch(todoActions.todoDone(todone));
+                                                setDonecont(false);
                                                 setChekid(i);
                                             }}></span>
                                             <span>
-                                                {todolist[i].do} | {todolist[i].id} | {todolist[i].date}
+                                                {todolist[i].do}  <span>(id : {todolist[i].id} / date : {todolist[i].date} )</span>
                                             </span> 
                                             <div className='btnWrap'>
                                                 <button onClick={()=> { dispatch(todoActions.pushModi(i,true)); }} className='modibtn xi-pen'></button>
@@ -106,13 +106,16 @@ function Todolist () {
                         <h4> 완료된 항목 </h4>
                         {
                             todoDonelist.map(function(a,i) {
-                                return(
+                                return (
                                     <div>
                                         <span className='title'>
-                                            {todoDonelist[i].do} {todoDonelist[i].id} {todoDonelist[i].date}
+                                            - {todoDonelist[i].do}
+                                            {/* <span>
+                                                (id : {todolist[i].id} / date : {todolist[i].date} )
+                                            </span> */}
                                         </span>
-                                        <span className={doneCont}>
-                                            <p>아직 완료된 항목이 없습니다!</p>
+                                        <span className={doneCont == true? 'display' : 'none'}>
+                                            아직 완료된 항목이 없습니다!
                                         </span>
                                     </div>
                                 )

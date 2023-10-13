@@ -28,7 +28,6 @@
   background-color: #282b3d;
   margin: 0;
   position: relative;
-  height: 100vh;
 }
 .menu.light {background-color: #f3f6f7;}
 .menu.light li.none {color: #333;}
@@ -70,7 +69,7 @@
 
 
 /* 오른쪽 컨텐츠 여백 */
-.contWrap {padding: 100px 50px;flex: 3;height: 100vh;}
+.contWrap {padding: 100px 50px;flex: 3;}
 .contWrap.light {background-color: #f3f6f7;}
 .contWrap.dark {background: #282b3d;}
 

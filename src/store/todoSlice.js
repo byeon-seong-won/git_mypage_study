@@ -6,46 +6,50 @@ import {createSlice} from '@reduxjs/toolkit'
 
 // todo list 
 const todoinitialState = {
-    inputs : [
-        {
-            id : ''
-        }
-    ],
+    inputs : [],
     lists : [
         {
             id : 0,
             do : "영화 보기",
             date : '06-28',
-            status : false,
-            done : false,
+            status : '',
+            done : '',
 
         },
         {
             id : 1,
             do : "운동 가기",
             date : '06-29',
-            status : false,
-            done : false,
+            status : '',
+            done :'',
 
         },
         {
             id : 2,
             do : "정처기 공부하기",
             date : '06-29',
-            status : false,
-            done : false,
+            status : '',
+            done :'',
+
+        },
+        {
+            id : 3,
+            do : "React 공부하기",
+            date : '06-30',
+            status : '',
+            done : '',
+
+        },
+        {
+            id : 4,
+            do : "vue 공부하기",
+            date : '06-30',
+            status : '',
+            done : '',
 
         },
     ],
-    done : [
-        {
-            id : '',
-            do : '',
-            date : '',
-            status : '',
-            done : '',
-        }
-    ]
+    done : []
 };
 
 let currId = todoinitialState.lists.length;
@@ -127,13 +131,14 @@ let todoSlice = createSlice({
 
             let exi = state.lists.findIndex( (x)=> {return x.id == action.payload.id})
             let check = state.done.findIndex( (x)=> {return x.do == action.payload.do})
-            if(check !== -1) {
-                return;
-            } else if(exi !== -1) {
+            if(exi !== -1) {
                 let donearr = state.lists[exi]
                 state.lists[exi].done = true;
                 state.done.push(donearr)
+            } else {
+                return;
             }
+             
    
         }
 
