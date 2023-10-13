@@ -8,6 +8,7 @@ import memoSlice from './memoSlice'
   const store =  configureStore ({
     reducer : {
         todo : todoSlice.reducer,
+        memo : memoSlice.reducer,
         bg : setbgSlice.reducer,
         tabidx : settabidxSlice.reducer,
         memo : memoSlice.reducer

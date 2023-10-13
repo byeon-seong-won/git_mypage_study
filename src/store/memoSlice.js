@@ -81,7 +81,7 @@ let memoSlice = createSlice({
         modiBg : {
             reducer: (state, action) => {
                 let idx = state.memos.findIndex( (x)=> {return x.id == action.payload.id})
-                state.memos[idx].color = action.payload
+                state.memos[idx].color = action.payload.color
             },
 
             prepare: (id, color) => {

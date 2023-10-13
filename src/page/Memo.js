@@ -42,10 +42,10 @@ function Memo () {
                 {
                     memolist.map(function(a,i) {
                         return(
-                            <li className={memoId == i? 'listcolor' : 'none'}>
-                                <span className='blue' onClick={()=> {dispatch(memoActions.modiBg(i,'blue'));console.log("listcolor는 블루" + listcolor + memoId);}}></span>
-                                <span className='yellow' onClick={()=> {dispatch(memoActions.modiBg(i,'yellow'));}}></span>
-                                <span className='beige' onClick={()=> {dispatch(memoActions.modiBg(i,'beige'));}}></span>
+                            <li className={memolist[i].color}>
+                                <span className='blue' onClick={()=> {dispatch(memoActions.modiBg(i, 'blue'));console.log("listcolor는 블루" + listcolor + memoId);}}></span>
+                                <span className='yellow' onClick={()=> {dispatch(memoActions.modiBg(i, 'yellow'));}}></span>
+                                <span className='beige' onClick={()=> {dispatch(memoActions.modiBg(i, 'beige'));}}></span>
                                 <span>{memolist[i].date} / {memolist[i].id}</span>
                                 <span>{memolist[i].cont}</span>
                             </li>
