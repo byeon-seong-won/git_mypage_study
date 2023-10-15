@@ -30,12 +30,12 @@
   position: relative;
 }
 .menu.light {background-color: #f3f6f7;}
-.menu.light li.none {color: #333;}
-.menu.light li.on {color: #333;font-weight: bold;}
-.menu.light li {border: 0.12rem solid #333;}
-.menu.light li:hover {background-color: #333;color: #fff;}
-.menu.light .button button  {border: 0.12rem solid #333;color: #333;}
-.menu.light .button button:hover {background-color: #333;color: #fff;}
+.menu.light li.none {color: #32364a;}
+.menu.light li.on {color: #f3f6f7;font-weight: bold;background-color: #32364a;}
+.menu.light li {border: 0.12rem solid #32364a;}
+.menu.light li:hover {background-color: #32364a;color: #fff;}
+.menu.light .button button  {border: 0.12rem solid #32364a;color: #32364a;}
+.menu.light .button button:hover {background-color: #32364a;color: #fff;}
 
 
 .menu.dark {background: #282b3d;}

@@ -36,6 +36,10 @@
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>h4 {font-size: 30px;font-weight: bold;color: #333;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {margin-top: 15px;align-items: center;position: relative;padding: 10px 15px;border-radius: 8px;border: 0.12rem solid #ddd;color: #333;font-weight: 500;}
 .contWrap.dark .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {border: 0.12rem solid #333;}
+.contWrap.dark .todolistwrap>div.rightCont>div.inputList>button {background-color: #32364a;
+  color: #fff;
+  border: 0.12rem solid #fff}
+
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span.check {display: inline-block;margin-right: 10px;font-size: 25px;cursor: pointer;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).chk {text-decoration: line-through;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).none {text-decoration: none;}
