@@ -88,10 +88,9 @@ let Memowrap = styled.div `
     display: inline-block;
     border: none;
     font-size : 30px;
-    border: 0.15rem solid #333;
-    color : #333;
+    color : #444;
     &:hover {
-        background-color : #333;
+        background-color : #444;
         color : #fff;
     }
   }
@@ -100,7 +99,7 @@ let Memowrap = styled.div `
     justify-content: space-between;
   }
   &>ul.memowrapcont {
-    margin-top : 40px;
+    margin-top : 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;

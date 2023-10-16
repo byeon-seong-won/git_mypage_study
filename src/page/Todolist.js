@@ -82,7 +82,7 @@ function Todolist () {
                         {
                             todoDonelist.map(function(a,i) {
                                 return (
-                                    <div>
+                                    <div className='list'>
                                         <span className='title'>
                                             - {todoDonelist[i].do}
                                         </span>
