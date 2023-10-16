@@ -6,7 +6,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 // todo list 
 const todoinitialState = {
-    inputs : [],
+
     lists : [
         {
             id : 0,
@@ -43,6 +43,30 @@ const todoinitialState = {
         {
             id : 4,
             do : "vue 공부하기",
+            date : '06-30',
+            status : '',
+            done : '',
+
+        },
+        {
+            id : 5,
+            do : "포트폴리오 업데이트하기",
+            date : '06-30',
+            status : '',
+            done : '',
+
+        },
+        {
+            id : 6,
+            do : "스터디 하기",
+            date : '06-30',
+            status : '',
+            done : '',
+
+        },
+        {
+            id : 7,
+            do : "노래듣기",
             date : '06-30',
             status : '',
             done : '',

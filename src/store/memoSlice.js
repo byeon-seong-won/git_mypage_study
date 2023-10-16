@@ -77,7 +77,7 @@ let memoSlice = createSlice({
                         id : currId++,
                         cont : '내용을 입력해주세요',
                         date : date,
-                        color : 'beige',
+                        color : '',
                         status : false,
                     },
                 }
@@ -108,12 +108,13 @@ let memoSlice = createSlice({
                 state.memos.splice(action.payload.id, 1, action.payload)
             },
 
-            prepare: (id, input, date) => {
+            prepare: (id, input, date,color) => {
                 return {
                     payload: {
                         id : id,
                         cont : input,
                         date : date,
+                        color : color,
                         status : false
                     },
                 }

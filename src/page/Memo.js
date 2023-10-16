@@ -7,9 +7,6 @@ import { memoActions } from '../store/store.js'
 
 
 
-// console.log(nowTime)
-
-
 function Memo () {
 
   const nowTime = moment().format('YYYY-MM-DD');
@@ -20,23 +17,9 @@ function Memo () {
   const [input, setInput] = useState('')
 
 
-  console.log("memoId " + memoId, "listcolor " + listcolor) 
-
-  // bg 변경
-  // const [bgcolor, setBgcolor] = useState('beige')
-  // const [idx, setIdx] = useState('')
-
-
- 
-
 
     return(
-        // <h1>메모장</h1>
         <Memowrap>
-            {/* <div onClick={()=>{memoadd(nowTime); 
-                }} className='addMemobtn'>+
-            </div> */}
-            {/* <input type="text" placeholder="메모를 추가해주세요" onChange={(e)=> {setInput(e.target.value)}}/> */}
             <button className='addMemobtn xi-plus' onClick={()=> {dispatch(memoActions.memoAdd(input, nowTime))}}></button>
             <ul className="memowrapcont">
                 {
@@ -51,12 +34,11 @@ function Memo () {
                                     <p> (날짜 : {memolist[i].date} / id : {memolist[i].id}) </p>
                                 </div>
                                 {/* 메모 클릭시 input 박스 */}
-                                {  memolist[i].status == true? <Addtext id={i}></Addtext> : null } 
+                                {  memolist[i].status == true? <Addtext id={i} color={listcolor}></Addtext> : null } 
                             </li>
                         )
                     })
                 }
-                {/* {  modi == true ? console.log("modi true") : null } */}
             </ul>
         </Memowrap>
     )
@@ -65,7 +47,7 @@ function Memo () {
 
 
 // 메모 클릭시 나타나는 input-box component
-const Addtext = ({id}) => {
+const Addtext = ({id, color}) => {
     let dispatch = useDispatch()
     const [input, setInput] = useState('')
     const nowTime = moment().format('MM-DD');
@@ -75,14 +57,13 @@ const Addtext = ({id}) => {
             alert("내용을 입력해주세요")
             return;
         } else {
-            dispatch(memoActions.textModi(id, input, nowTime)); dispatch(memoActions.memoModi(id,false))
+            dispatch(memoActions.textModi(id, input, nowTime,color)); dispatch(memoActions.memoModi(id,false))
         }
     }
 
     return(
         <div className='modiInput'>
             <input type="text" placeholder="내용을 입력해주세요" 
-            // className={todoInput.id == todolist[0].id ? 'block ' : 'none'}
             onChange={(e)=>{setInput(e.target.value)}}
             />
 

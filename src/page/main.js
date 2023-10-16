@@ -1,6 +1,5 @@
-import moment from 'moment';  //현재 시간 사용
+import moment from 'moment'; 
 import { useSelector, useDispatch} from 'react-redux'
-import { todoActions } from '../store/store.js'
 import 'moment/locale/ko';
 const nowDate = moment().format('MM-DD');
 const today = moment().format('YYYY-MM-DD')
@@ -11,7 +10,6 @@ const Main = () => {
 
   let todolist = useSelector((state) => {return state.todo.lists})
   let todaytodo = todolist.filter((x) => x.date == nowDate)
-  // console.log(todaytodo)
 
   return (
     <div className="todaywrap">
