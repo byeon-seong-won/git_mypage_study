@@ -25,8 +25,9 @@ function Todolist () {
     const [chkid, setChekid] = useState()
     // 완료항목
     const [doneCont, setDonecont] = useState(true)
+    const [display, setDisplay] = useState(true)
 
-    
+
     return(
         <div className='todolistwrap'>
             <div className='rightCont'>
@@ -50,6 +51,7 @@ function Todolist () {
                                                 dispatch(todoActions.todoDone(todone));
                                                 setDonecont(false);
                                                 setChekid(i);
+                                                setDisplay(false);
                                             }}></span>
                                             <span>
                                                 {todolist[i].do}  <span>(id : {todolist[i].id} / date : {todolist[i].date} )</span>
@@ -73,19 +75,17 @@ function Todolist () {
     
                     <div className="todolist todonelist">
                         <h4> 완료된 항목 </h4>
+                        <div className={display == true ? 'display' : 'none'}>
+                            <img src={process.env.PUBLIC_URL + 'notfound.png'} />
+                            <p>아직 완료된 항목이 없습니다!</p>
+                        </div>
                         {
                             todoDonelist.map(function(a,i) {
                                 return (
                                     <div>
                                         <span className='title'>
                                             - {todoDonelist[i].do}
-                                            {/* <span>
-                                                (id : {todolist[i].id} / date : {todolist[i].date} )
-                                            </span> */}
                                         </span>
-                                        {/* <span className={doneCont == true? 'display' : 'none'}>
-                                            아직 완료된 항목이 없습니다!
-                                        </span> */}
                                     </div>
                                 )
                             })

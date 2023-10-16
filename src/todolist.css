@@ -102,11 +102,13 @@
 
 
 /* 완료항목 */
-.todonelist>div {margin-top: 20px;}
-.todonelist>div>span:nth-child(1)>span {font-size: 14px;display: inline-block;    position: absolute;right: 76px;color: #888;font-weight: 400;}
-.todonelist>div>span {display: inline-block;}
-.todonelist>div>span:nth-child(2).display {display: block;}
-.todonelist>div>span:nth-child(2).none {display: none;}
+.todonelist>div.display {display: block;}
+.todonelist>div.none {display: none;}
+.todonelist>div>div {margin-top: 20px;}
+.todonelist>div>div>span:nth-child(1)>span {font-size: 14px;display: inline-block;position: absolute;right: 76px;color: #888;font-weight: 400;}
+.todonelist>div>div>span {display: inline-block;}
+.todonelist>div>div>span:nth-child(2).display {display: block;}
+.todonelist>div>div>span:nth-child(2).none {display: none;}
 
 
 

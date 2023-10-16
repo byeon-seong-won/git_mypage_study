@@ -4,7 +4,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 
 
-// todo list 
+// memo
 const meminitialState = {
     input : '',
     memos : [
@@ -101,7 +101,6 @@ let memoSlice = createSlice({
             }     
         },
 
-
         // 텍스트 넣기 동작
         textModi : {
             reducer: (state, action) => {
@@ -120,10 +119,6 @@ let memoSlice = createSlice({
                 }
             }     
         },
-
-
-
-
 
         // 리스트 bg 변경
         modiBg : {
