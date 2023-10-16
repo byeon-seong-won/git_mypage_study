@@ -12,12 +12,9 @@ function Menu({menu}) {
   let tabidx = useSelector((state) => {return state.tabidx.id})
   let dispatch = useDispatch()
   const [curidx, setcurIdx] = useState(0)
-  // const {counter, person }  = useSelector(state => ({
-  //   count : state.counterReducer.count,
-  //   person: state.personReducer.person,
-  // }));
 
 
+  
     return (
       <div className={"menu " + ( bg == 'dark'? 'light' : 'dark') }>
         <div>
