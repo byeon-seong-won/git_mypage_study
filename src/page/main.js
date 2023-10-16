@@ -23,7 +23,7 @@ const Main = () => {
               <h1>Welcome, <br></br>How are you?</h1>
             </div>
           </div>
-          <div className='bottomCont'>
+          {/* <div className='bottomCont'>
             <div>
               <img src={process.env.PUBLIC_URL + '/todo.png'} alt="copy url" className='todoImg'/>
               <h4>Today's List</h4>
@@ -44,7 +44,7 @@ const Main = () => {
               <img src={process.env.PUBLIC_URL + '/memo.png'} alt="copy url" className='memoImg'/>
               <h4>Today's Memo</h4>
             </div>
-          </div>
+          </div> */}
           <div className='weatherCont'>
 
           </div>

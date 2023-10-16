@@ -46,10 +46,13 @@ function Memo () {
                                 <span className='blue' onClick={()=> {dispatch(memoActions.modiBg(i, 'blue'));}}></span>
                                 <span className='yellow' onClick={()=> {dispatch(memoActions.modiBg(i, 'yellow'));}}></span>
                                 <span className='pink' onClick={()=> {dispatch(memoActions.modiBg(i, 'pink'));}}></span>
-                                <span>{memolist[i].date} / {memolist[i].id}</span>
-                                <span>{memolist[i].cont}</span>
+                                <div className={memolist[i].status == true ? 'display' : 'none'}>    
+                                    <p onClick={ ()=> {dispatch(memoActions.memoModi(i,true)); }}>{memolist[i].cont}</p>
+                                    <p> (날짜 : {memolist[i].date} / id : {memolist[i].id}) </p>
+                                </div>
+                                {/* 메모 클릭시 input 박스 */}
+                                {  memolist[i].status == true? <Addtext id={i}></Addtext> : null } 
                             </li>
-                            
                         )
                     })
                 }
@@ -61,14 +64,37 @@ function Memo () {
 
 
 
-// const Addmemo = () => {
-//     return(
-//         <li onClick={()=> {memomodi(true); findIdx(); }} className={idx == i ? 'none' : 'display'}>
-//             <span>{memo[i].date} / {memo[i].id}</span>
-//             <span>{memo[i].cont}</span>
-//         </li> 
-//     )
-// }
+// 메모 클릭시 나타나는 input-box component
+const Addtext = ({id}) => {
+    let dispatch = useDispatch()
+    const [input, setInput] = useState('')
+    const nowTime = moment().format('MM-DD');
+
+    const inputChk = () => {
+        if(input == '') {
+            alert("내용을 입력해주세요")
+            return;
+        } else {
+            dispatch(memoActions.textModi(id, input, nowTime)); dispatch(memoActions.memoModi(id,false))
+        }
+    }
+
+    return(
+        <div className='modiInput'>
+            <input type="text" placeholder="내용을 입력해주세요" 
+            // className={todoInput.id == todolist[0].id ? 'block ' : 'none'}
+            onChange={(e)=>{setInput(e.target.value)}}
+            />
+
+            <button onClick={()=>{ inputChk(); 
+            }}>입력완료</button>
+        </div>
+    )
+
+
+}
+
+
 
 
 
@@ -98,7 +124,7 @@ let Memowrap = styled.div `
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;
     column-gap: 10px;
-    &>li {padding : 1rem;}
+    &>li {padding : 1rem;cursor : pointer;min-height: 180px;}
     &>li.none {
         list-style-type: none;
         background-color: #fff;
@@ -111,14 +137,20 @@ let Memowrap = styled.div `
         }
         
     }
-    &>li.blue {background-color:blue;}
-    &>li.yellow {background-color:yellow;}
-    &>li.pink {background-color:pink;}
+    &>li.blue {background-color:blue;cursor : pointer;}
+    &>li.yellow {background-color:yellow;cursor : pointer;}
+    &>li.pink {background-color:pink;cursor : pointer;}
     &>li {
+        position: relative;
         background-color:beige;
-        &>span.blue {background-color:blue;width: 15px;height : 15px;display : inline-block;}
-        &>span.yellow {background-color:yellow;width: 15px;height : 15px;display : inline-block;}
-        &>span.pink {background-color:pink;width: 15px;height : 15px;display : inline-block;}
+        &>div input {border :none;background-color : transparent;width : 100%;height : 100%}
+        &>div.display {display : none;}
+        &>div.none {display : block;}
+        &>span.blue {border:1px solid #333;background-color:blue;width: 15px;height : 15px;display : inline-block;margin-right : 2px;}
+        &>span.yellow {border:1px solid #333;background-color:yellow;width: 15px;height : 15px;display : inline-block;margin-right : 2px;}
+        &>span.pink {border:1px solid #333;background-color:pink;width: 15px;height : 15px;display : inline-block;}
+        &>div>p:nth-of-type(1) {font-weight: 500;color : #333; font-size : 16px;margin-top: 10px}
+        &>div>p:nth-of-type(2) {color : #666; font-size : 14px;margin-top: 20px;position: absolute;bottom: 20px;right: 20px;}
     }
 
     &>li.display {display: block;}

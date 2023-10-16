@@ -20,24 +20,28 @@ function Menu({menu}) {
 
     return (
       <div className={"menu " + ( bg == 'dark'? 'light' : 'dark') }>
-        <ul>
-            {
-              menu.map(function(a,i) {
-                return(
-                  <li onClick={()=> {
-                    dispatch(settabidxActions.setTabidx(i)); setcurIdx(i)
-                  } } 
-                    className={ curidx == i? 'on' : 'none'}>
-                    <span class="xi-emoticon"></span>
-                    <span> {menu[i]} </span>
-                  </li>
-                )
-              })
-            }
-        </ul>
+        <div>
+          <img src={process.env.PUBLIC_URL + 'profile.jpg'} />
+          <p>Byeon seong won</p>
+          <ul>
+              {
+                menu.map(function(a,i) {
+                  return(
+                    <li onClick={()=> {
+                      dispatch(settabidxActions.setTabidx(i)); setcurIdx(i)
+                    } } 
+                      className={ curidx == i? 'on' : 'none'}>
+                      <span class="xi-emoticon"></span>
+                      <span> {menu[i]} </span>
+                    </li>
+                  )
+                })
+              }
+          </ul>
+        </div>
         <div className='button'>
-          <button onClick={()=> {dispatch(setbgActions.setBg('light'))}}>light mode</button>
-          <button onClick={()=> {dispatch(setbgActions.setBg('dark'))}}>dark mode</button>
+          <button onClick={()=> {dispatch(setbgActions.setBg('light'))}}>Light mode</button>
+          <button onClick={()=> {dispatch(setbgActions.setBg('dark'))}}>Dark mode</button>
         </div>
       </div>
     )
