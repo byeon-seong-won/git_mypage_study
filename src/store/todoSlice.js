@@ -93,6 +93,7 @@ let todoSlice = createSlice({
         todoModi : {
             reducer: (state, action) => {
                 state.lists.splice(action.payload.id, 1, action.payload)
+
             },
 
             prepare: (id, input, date) => {

@@ -36,16 +36,16 @@ function Memo () {
             {/* <div onClick={()=>{memoadd(nowTime); 
                 }} className='addMemobtn'>+
             </div> */}
-            <input type="text" placeholder="메모를 추가해주세요" onChange={(e)=> {setInput(e.target.value)}}/>
-            <button onClick={()=> {dispatch(memoActions.memoAdd(input, nowTime))}}>추가</button>
+            {/* <input type="text" placeholder="메모를 추가해주세요" onChange={(e)=> {setInput(e.target.value)}}/> */}
+            <button className='addMemobtn xi-plus' onClick={()=> {dispatch(memoActions.memoAdd(input, nowTime))}}></button>
             <ul className="memowrapcont">
                 {
                     memolist.map(function(a,i) {
                         return(
                             <li className={memolist[i].color}>
-                                <span className='blue' onClick={()=> {dispatch(memoActions.modiBg(i, 'blue'));console.log("listcolor는 블루" + listcolor + memoId);}}></span>
+                                <span className='blue' onClick={()=> {dispatch(memoActions.modiBg(i, 'blue'));}}></span>
                                 <span className='yellow' onClick={()=> {dispatch(memoActions.modiBg(i, 'yellow'));}}></span>
-                                <span className='beige' onClick={()=> {dispatch(memoActions.modiBg(i, 'beige'));}}></span>
+                                <span className='pink' onClick={()=> {dispatch(memoActions.modiBg(i, 'pink'));}}></span>
                                 <span>{memolist[i].date} / {memolist[i].id}</span>
                                 <span>{memolist[i].cont}</span>
                             </li>
@@ -75,16 +75,30 @@ function Memo () {
 
 // styled components
 let Memowrap = styled.div `
-  &>div .addMemobtn {border: 1px solid #000;background-color: #fff;display: inline-block;}
+  .addMemobtn {
+    margin-top :10px;
+    background-color: transparent;
+    display: inline-block;
+    border: none;
+    font-size : 30px;
+    border: 0.15rem solid #333;
+    color : #333;
+    &:hover {
+        background-color : #333;
+        color : #fff;
+    }
+  }
   &>input {
     display: flex;
     justify-content: space-between;
   }
   &>ul.memowrapcont {
+    margin-top : 40px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;
     column-gap: 10px;
+    &>li {padding : 1rem;}
     &>li.none {
         list-style-type: none;
         background-color: #fff;
@@ -95,13 +109,17 @@ let Memowrap = styled.div `
             font-size: 13px;
             cursor: pointer;
         }
-        &>span.blue {background-color:blue;width: 15px;height : 15px;}
-        &>span.yellow {background-color:yellow;width: 15px;height : 15px;}
-        &>span.beige {background-color:beige;width: 15px;height : 15px;}
+        
     }
     &>li.blue {background-color:blue;}
     &>li.yellow {background-color:yellow;}
-    &>li.beige {background-color:beige;}
+    &>li.pink {background-color:pink;}
+    &>li {
+        background-color:beige;
+        &>span.blue {background-color:blue;width: 15px;height : 15px;display : inline-block;}
+        &>span.yellow {background-color:yellow;width: 15px;height : 15px;display : inline-block;}
+        &>span.pink {background-color:pink;width: 15px;height : 15px;display : inline-block;}
+    }
 
     &>li.display {display: block;}
   }

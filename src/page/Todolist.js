@@ -114,9 +114,9 @@ function Todolist () {
                                                 (id : {todolist[i].id} / date : {todolist[i].date} )
                                             </span> */}
                                         </span>
-                                        <span className={doneCont == true? 'display' : 'none'}>
+                                        {/* <span className={doneCont == true? 'display' : 'none'}>
                                             아직 완료된 항목이 없습니다!
-                                        </span>
+                                        </span> */}
                                     </div>
                                 )
                             })
@@ -135,6 +135,16 @@ const Showinput = ({id}) => {
     const [input, setInput] = useState('')
     const nowTime = moment().format('MM-DD');
 
+    const inputChk = () => {
+        if(input == '') {
+            alert("수정사항을 입력해주세요")
+            return;
+        } else {
+            dispatch(todoActions.todoModi(id, input, nowTime)); dispatch(todoActions.pushModi(id,false))
+        }
+    }
+   
+
     return(
         <div className='modiInput'>
             <input type="text" placeholder="수정해주세요" 
@@ -142,7 +152,7 @@ const Showinput = ({id}) => {
             onChange={(e)=>{setInput(e.target.value)}}
             />
 
-            <button onClick={()=>{ dispatch(todoActions.todoModi(id, input, nowTime)); dispatch(todoActions.pushModi(id,false))
+            <button onClick={()=>{ inputChk(); 
             }}>수정완료</button>
         </div>
     )
