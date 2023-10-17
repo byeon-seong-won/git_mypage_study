@@ -122,4 +122,11 @@
 
 @media (min-width:320px) and (max-width:767.99px) {
   .todolist>div>div span:nth-of-type(2)>span {display: none;}
+  .todolist>div>div.nochk span:nth-of-type(2) {font-size: 14px;}
+  .todolist>div>div>span:nth-of-type(2) {margin-left: 10px;padding-left: 0;}
+  .todolist>div>div>span.xi-check {font-size: 10px;}
+  .todolist>div>div.nochk .btnWrap button {font-size: 15px;}
+  .todonelist>div.display {top: 55%;}
+  .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>h4 {font-size: 25px;}
+  
 }

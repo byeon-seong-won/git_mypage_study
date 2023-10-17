@@ -163,8 +163,6 @@ let todoSlice = createSlice({
             } else {
                 return;
             }
-             
-   
         }
 
     }

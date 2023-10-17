@@ -6,7 +6,7 @@
 .todaywrap>div {display: flex;flex-direction: column;justify-content: space-around;}
 
 /* 메인 - 이미지 컨텐츠 */
-.todaywrap>div>div.imgCont {position: relative;width: 100%;border-radius: 20px;max-width: 1350px;margin: 0 auto;overflow: hidden;}
+.todaywrap>div>div.imgCont {position: relative;width: 100%;border-radius: 20px;margin: 0 auto;overflow: hidden;}
 .todaywrap>div>div.imgCont:before {
   content: '';
   position: absolute;
@@ -16,8 +16,8 @@
   height: 100%;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0,0.7));
 }
-.todaywrap>div>div.imgCont>span {color: #fff;padding: 5px 10px;border-radius: 5px;position: absolute;top: 40px;right: 40px;}
-.todaywrap>div>div.imgCont>img.indexImg {width: 100%;border-radius: 20px;max-width: 1350px;margin: 0 auto;}
+.todaywrap>div>div.imgCont>span {color: #fff;padding: 5px 10px;border-radius: 5px;position: absolute;top: 40px;right: 40px;font-size: 20px;}
+.todaywrap>div>div.imgCont>img.indexImg {width: 100%;border-radius: 20px;margin: 0 auto;}
 .todaywrap>div>div.imgCont>div {position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);width: 100%;}
 .todaywrap>div>div.imgCont>div>h1 {color: #fff;font-size: 5.5rem;text-align: center;font-family: 'Anton', sans-serif;}
 .todaywrap>div>div.imgCont>div>h4 {color: #fff;font-size: 30px;text-align: center;}
@@ -28,11 +28,10 @@
   display: flex;
   justify-content: space-around;
   column-gap: 20px;    
-  max-width: 1350px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   width: 100%;
 }
-.todaywrap>div>div.bottomCont>div {margin-top: 40px;text-align: center;flex: 1;background-color: #fff;border-radius: 20px;padding: 20px;}
+.todaywrap>div>div.bottomCont>div {text-align: center;flex: 1;background-color: #fff;border-radius: 20px;padding: 50px 20px 20px 20px;}
 
 .xi-vimeo:before {font-size: 30px;line-height: 50px;}
 .todaywrap>div>div.bottomCont>div h4 {font-size: 1.5rem;margin-top: 10px;font-weight: bold;}
@@ -45,34 +44,43 @@
 
 
 /* 메인 - 날씨 컨텐츠 */
-.todaywrap>div>div.weatherCont {width: 100%;border-radius: 20px;max-width: 1350px;margin: 30px auto;background-color: #fff;height: 300px;display: none;}
+.todaywrap>div>div.weatherCont {width: 100%;border-radius: 20px;margin: 30px auto;background-color: #fff;height: 300px;display: none;}
 
 
 
 
 @media (max-width: 1200px) {
-  .todaywrap>div>div.bottomCont {flex-direction: column;}
+  .todaywrap>div>div.bottomCont {flex-direction: column;gap: 20px;}
+  
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
   .todaywrap>div>div.imgCont>div>h1 {font-size: 4.5rem;}
 
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .wrap {flex-direction: column;}
+}
+@media (min-width: 768px) and (max-width: 1024px) {
   .todaywrap>div>div.imgCont>div>h1 {font-size: 4rem;}
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
   .wrap {flex-direction: column;}
+  .todaywrap>div>div.imgCont>span {display: none;}
 
 }
 
 @media (min-width: 520px) and (max-width: 768px) {
   .todaywrap>div>div.imgCont>div>h1 {font-size: 4rem;}
 }
-@media (min-width: 320px) and (max-width: 520px) {
+@media (min-width: 320px) and (max-width: 600px) {
   .todaywrap>div>div.imgCont>div>h1 {font-size: 2rem;}
+  .todaywrap>div>div.bottomCont>div>ul li span:nth-child(1) {font-size: 14px;}
+  .todaywrap>div>div.bottomCont>div>ul {padding: 0;}
+  .todaywrap>div>div.bottomCont>div>ul li {padding: 5px;}
+  .todaywrap>div>div.bottomCont>div h4 {font-size: 1.3rem;}
 }
   
+
+

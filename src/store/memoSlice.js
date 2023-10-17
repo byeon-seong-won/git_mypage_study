@@ -12,21 +12,21 @@ const meminitialState = {
             id : 0,
             cont : "IDE :  컴파일 - 주어진 언어로 작성된 컴퓨터 프로그램을 다른 언어의 동등한 프로그램으로 변환하는 기능 (고급언어에서 저급언어로 변환하는 기능임) deployment - 소프트웨어를 최종 사용자에게 전달하기 위한 기능",
             date : '2023-08-01',
-            color : 'beige',
+            color : '',
             status : ''
         },
         {
             id : 1,
             cont : "미들웨어 :여러 운영체제에서 응용 프로그램들 사이에 위치한 소프트웨어로 소프트웨어 컴포넌트를 연결하기 위한 준비된 인프라 구조를 제공함여러 컴포넌트를 다대다, 1대1, 1대다 여러가지 형태로 연결 가능",
             date : '2023-08-01',
-            color : 'beige',
+            color : '',
             status : ''
         },
         {
             id : 2,
             cont : "객체 : 객체의 상태는 속성값에 의해 정의됨 필요한 자료 구조와 수행되는 함수들을 가진 하나의 독립된 존재 상태, 동작, 고유 식별자를 가진 모든 것임 -- 클래스 : 공통 속성을 공유하는 객체들의 집합임",
             date : '2023-08-02',
-            color : 'beige',
+            color : '',
             status : ''
         },
         {
@@ -84,6 +84,11 @@ let memoSlice = createSlice({
             }     
         },
 
+        // 리스트 삭제
+        memoRemove(state, action) {
+            state.memos.splice(action.payload,1)
+        },
+
         // 텍스트 수정 동작
         memoModi : {
             reducer: (state, action) => {
@@ -107,14 +112,14 @@ let memoSlice = createSlice({
                 state.memos.splice(action.payload.id, 1, action.payload)
             },
 
-            prepare: (id, input, date,color) => {
+            prepare: (id, input, date, color) => {
                 return {
                     payload: {
                         id : id,
                         cont : input,
                         date : date,
                         color : color,
-                        status : false
+                        status : false,                  
                     },
                 }
             }     

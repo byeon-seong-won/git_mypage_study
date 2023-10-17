@@ -14,11 +14,12 @@
 /* 배경 색상 변경 */
 .wrap {background-color: #f3f6f7;width: 100%;margin: 0 auto;display: flex;height: 100%;min-height: 100vh;}
 .button {display: flex;row-gap: 10px;justify-content: space-between;width: 80%;flex-direction: column;margin: 0 auto 30px;}
-.button button {flex: 1;border: 1px solid #fff;border-radius: 0.5rem;cursor: pointer;margin-right: 5px;color: #fff;padding: 0.5rem 0.8rem;background-color: transparent;}
+.button button {flex: 1;border-radius: 0.5rem;cursor: pointer;margin-right: 5px;color: #fff;padding: 0.5rem 0.8rem;background-color: transparent;}
 .button button:hover {background-color: #fff;color: #282b3d;}
 
-
-
+.menu.dark .button button.clicked {background-color: #191c2d;color: #d7e3e7;}
+.menu.light .button button.clicked {background-color: #dde2e4;color: #282b3d;}
+.menu>div.button button span {display: block;}
 
 
 /*---------- menu style ----------*/
@@ -33,16 +34,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.menu.light {background-color: #f3f6f7;}
-.menu.light li.none {color: #32364a;}
-.menu.light li.on {color: #32364a;font-weight: bold;background-color: #dde2e4;}
-/* .menu.light li {border: 0.12rem solid #32364a;} */
-.menu.light li:hover {background-color: #dde2e4;color: #32364a;}
-.menu.light .button button  {color: #32364a;border: 1px solid #d3d8da;}
-.menu.light .button button:hover {background-color: #dde2e4;color: #32364a;}
-
-
-.menu.dark {background: #282b3d;}
 .menu li {
   list-style-type: none;
   font-size: 16px;
@@ -57,7 +48,18 @@
   text-align: left;
   column-gap: 10px;
 }
-.menu.dark li:hover {color: #f3f6f7;font-weight: bold;}
+.menu.light {background-color: #f3f6f7;}
+.menu.light li.none {color: #32364a;}
+.menu.light li.on {color: #32364a;font-weight: bold;background-color: #dde2e4;}
+/* .menu.light li {border: 0.12rem solid #32364a;} */
+.menu.light li:hover {background-color: #dde2e4;color: #32364a;}
+.menu.light .button button  {color: #32364a;border: 1px solid #d3d8da;}
+.menu.light .button button:hover {background-color: #dde2e4;color: #32364a;}
+.menu.dark .button button:hover {background-color: #191c2d;color: #d7e3e7;}
+
+
+.menu.dark {background: #282b3d;}
+.menu.dark li:hover {color: #f3f6f7;font-weight: bold;background-color: #32364a;}
 .menu.dark li.on {color: #f3f6f7;font-weight: bold;background-color: #32364a;}
 .menu.dark li.none {color: #f3f6f7;font-weight: 500;}
 .material-symbols-outlined {
@@ -71,8 +73,6 @@
 
 
 .menu li>span:nth-child(1) {display: inline-block;width: 30px;}
-
-
 .menu>div>img {width: 80%;border-radius: 50%;margin-top: 50px;max-width: 200px;}
 .menu>div>p {border-bottom: 1px solid #aaa;
   padding-bottom: 30px;color: #fff;text-align: center;font-size:16px;margin-top: 20px;}
@@ -83,7 +83,7 @@
 
 
 /* 오른쪽 컨텐츠 여백 */
-.contWrap {padding: 30px;flex: 3;}
+.contWrap {padding: 30px;flex: 3;display: table;}
 .contWrap.light {background-color: #f3f6f7;}
 .contWrap.dark {background: #282b3d;}
 .contWrap.dark .tabTitle {color: #fff;}
@@ -95,39 +95,61 @@
 .tabTitle.light {color: #f3f6f7;} */
 
 .Tabcont h4 {margin: 0;}
+.contWrap>div:not(.todoDiv, .memoDiv) {display: table-cell;vertical-align: middle;}
+.todoDiv, .memoDiv {margin:50px 0;}
 
 
 @media (min-width: 1024px) and (max-width: 1200px) {
   .button {width: 100%;}
 }
-@media (min-width:360px) and (max-width:1024px) {
+@media (min-width:320px) and (max-width:1024px) {
 
   /* .wrap {flex-direction: column;}
   .menu ul {display: flex;} */
   .menu li>span:nth-child(1) {display: none;}
+  .todaywrap>div>div.bottomCont>div {padding: 20px;}
 }
 
-@media (min-width:768px) and (max-width:1024px) {
-  .menu {flex-direction: row;}
+@media (min-width:768px) and (max-width:1200px) {
+  .menu {flex-direction: row;flex: unset;}
   .menu>div {flex: 2.5;}
-  .menu>div.button {flex: 1;flex-direction: row;}
+  .menu>div.button {display: block;text-align: right;}
   .menu>div>img, .menu>div>p {display: none;}
   .menu>div>ul {margin-top: 0;flex-direction: row;gap: 30px;}
   .button {margin-bottom: 0;}
   .menu li {margin-top: 0;}
+  .contWrap>div:not(.todoDiv, .memoDiv) {display: block;}
+  .todoDiv, .memoDiv {margin-top: 0;}
+  
 }
 
 
 @media (min-width:320px) and (max-width:767.99px) {
-  .menu {flex-direction: row;}
-  .menu>div {flex: 2.5;}
-  .menu>div.button {flex: 1;flex-direction: row;}
+  .menu {flex-direction: row;flex: unset;}
+  .menu>div {flex: 2;}
+  .menu>div.button {display: block;text-align: right;}
   .menu>div>img, .menu>div>p {display: none;}
   .menu>div>ul {margin-top: 0;flex-direction: row;gap: 10px;}
   .button {margin-bottom: 0;}
   .menu li {margin-top: 0;}
-  .contWrap {padding: 20px;}
+  .contWrap {padding: 0;}
+  .todoDiv, .memoDiv {padding: 0 20px;}
+  .todaywrap>div>div.bottomCont {padding: 0 20px;box-sizing: border-box;}
+  .todaywrap>div>div.imgCont, .todaywrap>div>div.imgCont>img.indexImg {border-radius: 0;}
+  .contWrap>div:not(.todoDiv, .memoDiv) {display: block;}
+  .menu>div.button button span {display: none;}
+
+
 }
 
 
+@media (min-width:320px) and (max-width:600px) {
+  .menu {flex-direction: row;flex:unset;}
+  .menu li {font-size: 14px;}
+  .menu>div.button {display: block;text-align: right;flex: 0.5; }
+  .menu>div.button button {padding: 0.5rem;}
+  .contWrap>div:not(.todoDiv, .memoDiv) {display: block;}
+  .tabTitle {font-size: 40px;}
 
+
+}

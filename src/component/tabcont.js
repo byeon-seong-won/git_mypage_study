@@ -45,11 +45,11 @@ function Cont () {
         <div>
             <Main></Main>
         </div>,
-        <div>
+        <div className='todoDiv'>
             <h4 className="tabTitle">Todos</h4>
             <Todolist></Todolist>
         </div>,
-        <div>
+        <div className='memoDiv'>
             <h4 className="tabTitle">Sticker Memo</h4>
             <Memo></Memo>
         </div>

@@ -10,10 +10,10 @@ function Menu({menu}) {
 
   let bg = useSelector((state) => {return state.bg})
   let tabidx = useSelector((state) => {return state.tabidx.id})
+  const [isClicked, setIsclicked] = useState(0)
   let dispatch = useDispatch()
   const [curidx, setcurIdx] = useState(0)
-
-
+ 
   
     return (
       <div className={"menu " + ( bg == 'dark'? 'light' : 'dark') }>
@@ -37,8 +37,8 @@ function Menu({menu}) {
           </ul>
         </div>
         <div className='button'>
-          <button onClick={()=> {dispatch(setbgActions.setBg('light'))}}>Light mode</button>
-          <button onClick={()=> {dispatch(setbgActions.setBg('dark'))}}>Dark mode</button>
+          <button onClick={()=> {dispatch(setbgActions.setBg('light')); setIsclicked('0')}} className={isClicked == '0'? 'clicked' : null}><span>Light mode</span></button>
+          <button onClick={()=> {dispatch(setbgActions.setBg('dark')); setIsclicked('1')}} className={isClicked == '1'? 'clicked' : null}><span>Dark mode</span></button>
         </div>
       </div>
     )

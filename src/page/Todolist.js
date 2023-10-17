@@ -1,6 +1,6 @@
 import moment from 'moment';  
 import { useSelector, useDispatch} from 'react-redux'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'moment/locale/ko';
 import { todoActions } from '../store/store.js'
 
@@ -8,24 +8,25 @@ import { todoActions } from '../store/store.js'
 
 
 
-
-
 function Todolist () {
-    
+
+    let dispatch = useDispatch()
     let todolist = useSelector((state) => {return state.todo.lists})
     let todoDonelist = useSelector((state) => {return state.todo.done})
-    let dispatch = useDispatch()
     const [input, setInput] = useState('')
     const nowTime = moment().format('MM-DD');
-    const [value, onChange] = useState(new Date());
-    // 수정
-    const [modi, setModi] = useState(false)
-    // 체크 클릭시 -> 완료항목
-    const [chk, setChk] = useState('')
-    const [chkid, setChekid] = useState()
-    // 완료항목
-    const [doneCont, setDonecont] = useState(true)
-    const [display, setDisplay] = useState(true)
+
+    // 완료항목 여부 체크
+    let todone = todolist.filter((x) => x.done == true) 
+    const [donedisplay, setdoneDisplay] = useState(true)
+  
+    useEffect(() => {
+      if(todone.length !==0 ) {
+        setdoneDisplay(false)
+      } else { 
+        setdoneDisplay(true)
+      }
+    }, [todone]);
 
 
     return(
@@ -49,15 +50,12 @@ function Todolist () {
                                             <span className='xi-check' onClick={()=> { 
                                                 let todone = todolist[i]
                                                 dispatch(todoActions.todoDone(todone));
-                                                setDonecont(false);
-                                                setChekid(i);
-                                                setDisplay(false);
                                             }}></span>
                                             <span>
                                                 {todolist[i].do}  <span>(id : {todolist[i].id} / date : {todolist[i].date} )</span>
                                             </span> 
                                             <div className='btnWrap'>
-                                                <button onClick={()=> { dispatch(todoActions.pushModi(i,true)); }} className='modibtn xi-pen'></button>
+                                                <button onClick={()=> { dispatch(todoActions.pushModi(todolist[i].id,true)); }} className='modibtn xi-pen'></button>
                                                 <button onClick={() =>
                                                     { dispatch(todoActions.todoRemove(i)) } }>
                                                     <span className='xi-close-min'></span>
@@ -66,7 +64,7 @@ function Todolist () {
                                         </div>
     
                                         {/* 수정 클릭시 수정 input 박스 */}
-                                        {  todolist[i].status == true? <Showinput id={i}></Showinput> : null } 
+                                        {  todolist[i].status == true? <Showinput id={todolist[i].id}></Showinput> : null } 
                                     </div>
                                 )
                             })
@@ -75,7 +73,7 @@ function Todolist () {
     
                     <div className="todolist todonelist">
                         <h4> 완료된 항목 </h4>
-                        <div className={display == true ? 'display' : 'none'}>
+                        <div className={donedisplay == true ? 'display' : 'none'}>
                             <img src={process.env.PUBLIC_URL + 'notfound.png'} />
                             <p>아직 완료된 항목이 없습니다!</p>
                         </div>
@@ -109,7 +107,7 @@ const Showinput = ({id}) => {
             alert("수정사항을 입력해주세요")
             return;
         } else {
-            dispatch(todoActions.todoModi(id, input, nowTime)); dispatch(todoActions.pushModi(id,false))
+            dispatch(todoActions.todoModi(id, input, nowTime));
         }
     }
    

@@ -17,6 +17,7 @@ const Main = () => {
   const [todisplay, settoDisplay] = useState(true)
   const [medisplay, setmeDisplay] = useState(true)
 
+  // 오늘 추가된 내용 여부 체크
   useEffect(() => {
     if(todaytodo.length !==0 ) {
       settoDisplay(false)
