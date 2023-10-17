@@ -17,7 +17,7 @@ const Main = () => {
   const [todisplay, settoDisplay] = useState(true)
   const [medisplay, setmeDisplay] = useState(true)
 
-  // 오늘 추가된 내용 여부 체크
+  // 오늘의 내용 추가 여부 체크
   useEffect(() => {
     if(todaytodo.length !==0 ) {
       settoDisplay(false)
@@ -56,7 +56,6 @@ const Main = () => {
                 Today's todos
               </h4>
               <div className={todisplay == true ? 'display' : 'none'}>
-                  {/* <img src={process.env.PUBLIC_URL + 'notfound.png'} /> */}
                   <p>오늘의 할일이 없습니다!</p>
               </div>
               <ul>
@@ -78,7 +77,6 @@ const Main = () => {
                 Today's memos
               </h4>
               <div className={medisplay == true ? 'display' : 'none'}>
-                  {/* <img src={process.env.PUBLIC_URL + 'notfound.png'} /> */}
                   <p>오늘의 메모가 없습니다!</p>
               </div>
               <ul>
