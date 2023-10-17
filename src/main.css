@@ -58,15 +58,15 @@
   .todaywrap>div>div.imgCont>div>h1 {font-size: 4.5rem;}
 
 }
-@media (min-width: 768px) and (max-width: 1200px) {
+/* @media (min-width: 768px) and (max-width: 1200px) {
   .wrap {flex-direction: column;}
-}
+} */
 @media (min-width: 768px) and (max-width: 1024px) {
   .todaywrap>div>div.imgCont>div>h1 {font-size: 4rem;}
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
-  .wrap {flex-direction: column;}
+  /* .wrap {flex-direction: column;} */
   .todaywrap>div>div.imgCont>span {display: none;}
 
 }

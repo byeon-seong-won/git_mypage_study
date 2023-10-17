@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { setbgActions, settabidxActions } from '../store/store.js'
 import { useSelector, useDispatch} from 'react-redux'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 
 
@@ -9,8 +9,6 @@ import { useSelector, useDispatch} from 'react-redux'
 function Menu({menu}) {
 
   let bg = useSelector((state) => {return state.bg})
-  // let tabidx = useSelector((state) => {return state.tabidx.id})
-  // const [isClicked, setIsclicked] = useState(0)
   let dispatch = useDispatch()
   const [curidx, setcurIdx] = useState(0)
  
@@ -43,6 +41,24 @@ function Menu({menu}) {
       </div>
     )
   }
+
+
+
+  // styled components
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   export default Menu

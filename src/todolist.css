@@ -3,46 +3,46 @@
 
 /*---------- todolist style ----------*/
 
-.todoWrap {display: flex;}
-.todolist li.click {display: none;}
-.todolist li.unclick {display: block;}
-.todolist input[type="text"] {border: none;}
+
+/* .todolist li.click {display: none;} */
+/* .todolist li.unclick {display: block;}
+.todolist input[type="text"] {border: none;} */
 
 
-.todolist>div>div.display {display: none;}
-.todolist>div>div.none {display: flex;}
+/* .todolist>div>div.display {display: none;}
+.todolist>div>div.none {display: flex;} */
 
-.todolist>div>div span:nth-of-type(2)>span {font-size: 14px;display: inline-block;    position: absolute;right: 76px;color: #888;font-weight: 400;}
-.todolist>div>div.chk span:nth-of-type(2) {text-decoration: line-through;}
+/* .todolist>div>div span:nth-of-type(2)>span {font-size: 14px;display: inline-block;    position: absolute;right: 76px;color: #888;font-weight: 400;} */
+/* .todolist>div>div.chk span:nth-of-type(2) {text-decoration: line-through;}
 .todolist>div>div.nochk span:nth-of-type(2) {text-decoration: none;}
 .todolist>div>div.chk .btnWrap {display: none;}
-.todolist>div>div.nochk .btnWrap {display: block;position: absolute;right: 10px;}
+.todolist>div>div.nochk .btnWrap {display: block;position: absolute;right: 10px;} */
 
-.todolist>div>div>span.xi-check {display: table;border: 0.12rem solid #333;border-radius: 50%;padding: 5px;font-size: 13px;cursor: pointer;}
+/* .todolist>div>div>span.xi-check {display: table;border: 0.12rem solid #333;border-radius: 50%;padding: 5px;font-size: 13px;cursor: pointer;}
 .todolist>div>div>span.xi-check:hover {background-color: #333;color: #fff;}
 .todolist>div>div>span.xi-check::before {display: table-cell;vertical-align: middle;}
 
-.todolist>div>div.chk>span.xi-check {background-color: #333;color: #fff;}
+.todolist>div>div.chk>span.xi-check {background-color: #333;color: #fff;} */
 
-.todolistwrap {display: flex;margin-top: 10px;}
-.todolistwrap>div {display: flex;flex-direction: column;flex: 1;}
-.todolistwrap>div.rightCont>div.inputList {display: flex;column-gap: 10px;}
+/* .todolistwrap {display: flex;margin-top: 10px;} */
+/* .todolistwrap>div {display: flex;flex-direction: column;flex: 1;} */
+/* .todolistwrap>div.rightCont>div.inputList {display: flex;column-gap: 10px;}
 .todolistwrap>div.rightCont>div.inputList>input {flex: 3; border: 1px solid #ddd;padding-left: 10px;border-radius: 5px;}
 .todolistwrap>div.rightCont>div.inputList>input::placeholder {color: #aaa;}
-.todolistwrap>div.rightCont>div.inputList>button {border: none;background-color: #32364a;padding: 10px 30px;border-radius: 5px;color: #fff;}
+.todolistwrap>div.rightCont>div.inputList>button {border: none;background-color: #32364a;padding: 10px 30px;border-radius: 5px;color: #fff;} */
 
-.todolistwrap>div.rightCont>div:nth-child(2) {display: flex;justify-content: space-between;column-gap: 30px;}
+/* .todolistwrap>div.rightCont>div:nth-child(2) {display: flex;justify-content: space-between;column-gap: 30px;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist {flex: 1;margin-top: 25px;background-color: #fff;border-radius: 20px;padding: 20px;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>h4 {font-size: 30px;font-weight: bold;color: #333;}
-.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {margin-top: 15px;align-items: center;position: relative;padding: 10px 15px;border-radius: 8px;border: 0.12rem solid #ddd;color: #333;font-weight: 500;}
-.contWrap.dark .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {border: 0.12rem solid #333;}
+.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {margin-top: 15px;align-items: center;position: relative;padding: 10px 15px;border-radius: 8px;border: 0.12rem solid #ddd;color: #333;font-weight: 500;} */
+/* .contWrap.dark .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist:not(.todonelist)>div {border: 0.12rem solid #333;}
 .contWrap.dark .todolistwrap>div.rightCont>div.inputList>button {background-color: #32364a;
   color: #fff;
-  border: 0.12rem solid #fff}
+  border: 0.12rem solid #fff} */
 
-.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span.check {display: inline-block;margin-right: 10px;font-size: 25px;cursor: pointer;}
+/* .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span.check {display: inline-block;margin-right: 10px;font-size: 25px;cursor: pointer;}
 .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).chk {text-decoration: line-through;}
-.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).none {text-decoration: none;}
+.todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>div>span:nth-child(2).none {text-decoration: none;} */
 /* .todolistwrap>div.rightCont>div.todolist>div>span.title:before {
   content: "\e94f";
   font-family: xeicon; 
@@ -54,18 +54,18 @@
 } */
 
 
-.todolist>div>div.nochk .btnWrap button {font-size:20px;background-color: transparent;border: none;color: #333;}
-.todolist>div>div.nochk .btnWrap button:nth-child(2) {margin-left: 10px;}
+/* .todolist>div>div.nochk .btnWrap button {font-size:20px;background-color: transparent;border: none;color: #333;}
+.todolist>div>div.nochk .btnWrap button:nth-child(2) {margin-left: 10px;} */
 
 
 
 
 /* 완료항목 */
-.todolist>div>div>span:nth-of-type(2) {padding-left: 30px;}
+/* .todolist>div>div>span:nth-of-type(2) {padding-left: 30px;} */
 /* .todolist>div>div>span:nth-of-type(2).chk {text-decoration: line-through;}
 .todolist>div>div>span:nth-of-type(2).none {text-decoration: none;} */
 
-.modiInput button {
+/* .modiInput button {
   background-color: transparent;
   display: inline-block;    
   right: 10px;
@@ -73,8 +73,8 @@
   padding: 2px 15px;
   border: 0.12rem solid #333;
   border-radius: 5px;
-}
-.modiInput button:hover {background-color: #333;color: #fff;}
+} */
+/* .modiInput button:hover {background-color: #333;color: #fff;} */
 /* .todolist li.chk .xichk {
   background-color: #333;
   color: #fff;
@@ -102,31 +102,29 @@
 
 
 /* 완료항목 */
-.todonelist {position: relative;min-height: 300px;}
-.todonelist>div.display {display: block;text-align: center;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
+/* .todonelist {position: relative;min-height: 300px;} */
+/* .todonelist>div.display {display: block;text-align: center;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
 .todonelist>div.display>p {font-size: 18px;}
 .todonelist>div.none {display: none;}
 .todonelist>div.list {margin-top: 15px;}
-.todonelist>div.list>span.title {font-size: 16px;font-weight: 400;display: inline-block;}
+.todonelist>div.list>span.title {font-size: 16px;font-weight: 400;display: inline-block;} */
 
 
 
 
-/* calendar */
-.highlight {background-color: #f3a95f;}
 
 
-@media (max-width : 1440px) {
+/* @media (max-width : 1440px) {
   .todolistwrap>div.rightCont>div:nth-child(2) {display: flex;flex-direction: column;row-gap: 30px;}
-}
+} */
 
-@media (min-width:320px) and (max-width:767.99px) {
-  .todolist>div>div span:nth-of-type(2)>span {display: none;}
-  .todolist>div>div.nochk span:nth-of-type(2) {font-size: 14px;}
+/* @media (min-width:320px) and (max-width:767.99px) { */
+  /* .todolist>div>div span:nth-of-type(2)>span {display: none;} */
+  /* .todolist>div>div.nochk span:nth-of-type(2) {font-size: 14px;}
   .todolist>div>div>span:nth-of-type(2) {margin-left: 10px;padding-left: 0;}
   .todolist>div>div>span.xi-check {font-size: 10px;}
   .todolist>div>div.nochk .btnWrap button {font-size: 15px;}
-  .todonelist>div.display {top: 55%;}
-  .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>h4 {font-size: 25px;}
+  .todonelist>div.display {top: 55%;} */
+  /* .todolistwrap>div.rightCont>div:nth-child(2)>div.todolist>h4 {font-size: 25px;} */
   
-}
+/* } */

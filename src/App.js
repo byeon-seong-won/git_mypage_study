@@ -3,28 +3,38 @@ import './App.css';
 import Menu from './component/menu'
 import Cont  from './component/tabcont';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 
-
-// 전체 페이지
 const App = () => {
-
-  // // 서버에서 받은 데이터를 console로 확인
-  // useEffect(() => {
-  //   axios.get('/api/test')
-  //     .then(res => console.log(res))
-  //     .catch()
-  // })
-
   const [menu] = useState(['Home','Todo List','Sticker Memo'])
 
   return (
-    <div className="wrap">
+    <Wrap>
       <Menu menu={menu}></Menu>
       <Cont></Cont>
-    </div>
+    </Wrap>
   );
 }
+
+
+// styled components
+let Wrap = styled.div `
+  background-color: #f3f6f7;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  @media (min-width: 320px) and (max-width: 1200px) {
+    flex-direction: column;
+  }
+`
+
+
+
+
+
 
 
 export {App}
