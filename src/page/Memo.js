@@ -158,7 +158,7 @@ let Memowrap = styled.div `
             position: absolute;
             top: 20px;
             right: 50px;
-            @media (min-width:320px) and (max-width:1200px) {
+            @media (min-width:320px) and (max-width:1440px) {
                 display : none;
             }   
         }
