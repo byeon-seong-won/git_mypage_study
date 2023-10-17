@@ -1,4 +1,4 @@
-import moment from 'moment';  //현재 시간 사용
+import moment from 'moment'; 
 import 'moment/locale/ko';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux'
