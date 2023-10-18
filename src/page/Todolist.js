@@ -64,7 +64,7 @@ function Todolist () {
                                         </div>
     
                                         {/* 수정 클릭시 수정 input 박스 */}
-                                        {  todolist[i].status == true? <Showinput id={todolist[i].id}></Showinput> : null } 
+                                        {  todolist[i].status == true? <Showinput id={i}></Showinput> : null } 
                                     </div>
                                 )
                             })
