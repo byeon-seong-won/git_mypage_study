@@ -170,14 +170,4 @@ let todoSlice = createSlice({
 
 
 
-// let addmodalSlice = createSlice({
-//   name : 'addmodal',
-//   initialState : addmodalinitialState,
-//   reducers : {
-//     addModal(state,status) {
-//        return state = status.payload
-//     }
-//   }
-// })
-
 export default todoSlice 

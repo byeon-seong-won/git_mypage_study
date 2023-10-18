@@ -7,6 +7,7 @@ import 'moment/locale/ko';
 
 
 
+
 // 오른쪽 탭 컨텐츠 
 function Cont () {
 
@@ -16,25 +17,26 @@ function Cont () {
 
 
   return (
-    <div className={'contWrap ' + ( bg == 'dark'? 'dark' : 'light') }>
-      {[
-        <div>
-            <Main></Main>
-        </div>,
-        <div className='todoDiv'>
-            <h4 className="tabTitle">Todos</h4>
-            <Todolist></Todolist>
-        </div>,
-        <div className='memoDiv'>
-            <h4 className="tabTitle">Sticker Memo</h4>
-            <Memo></Memo>
-        </div>
-      ][tabidx]
-      } 
-    </div>
+      <div className={'contWrap ' + ( bg == 'dark'? 'dark' : 'light') }>
+        {[
+          <div>
+              <Main></Main>
+          </div>,
+          <div className='todoDiv'>
+              <h4 className="tabTitle">Todos</h4>
+              <Todolist></Todolist>
+          </div>,
+          <div className='memoDiv'>
+              <h4 className="tabTitle">Sticker Memo</h4>
+              <Memo></Memo>
+          </div>
+        ][tabidx]
+        } 
+      </div>
   )
 }
   
- 
+
+
 
 export default Cont
