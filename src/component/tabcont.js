@@ -13,8 +13,6 @@ function Cont () {
 
   let bg = useSelector((state) => {return state.bg})
   let tabidx = useSelector((state) => {return state.tabidx.id})
-  console.log("cont안의 idx " + tabidx)
-
 
   return (
       <div className={'contWrap ' + ( bg == 'dark'? 'dark' : 'light') }>

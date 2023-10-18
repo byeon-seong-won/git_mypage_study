@@ -44,7 +44,7 @@ const Main = () => {
     <Todaywrap>
         <div>
           <div className='imgCont'>
-            <img src={process.env.PUBLIC_URL + '/indexMain.png'} alt="copy url" className='indexImg'/>
+            <img src={process.env.PUBLIC_URL + 'indexMain.png'} alt="copy url" className='indexImg'/>
             <span>Today : {today}</span>
             <div>
               <h1>Welcome, <br></br>How are you?</h1>
