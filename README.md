@@ -4,7 +4,8 @@
 
 
 <h2>Site Map</h2>
-<img alt="image" src="https://github.com/byeon-seong-won/react_mypage_study/assets/136781516/44c7dc2a-dd03-453a-9aed-7bcfe31b57ae"
+<img alt="image" src="https://github.com/byeon-seong-won/react_mypage_study/assets/136781516/53449180-9ddf-49a7-8ed1-e59135ca3489"
+
 
 
 
