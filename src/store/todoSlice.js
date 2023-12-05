@@ -116,14 +116,23 @@ let todoSlice = createSlice({
         // 리스트 수정
         todoModi : {
             reducer: (state, action) => {
-                state.lists.splice(action.payload.id, 1, action.payload)
+                state.lists.splice(action.payload.idx, 1, action.payload)
 
             },
 
-            prepare: (id, input, date) => {
+            prepare: (idx, input, date) => {
+                var currList = new Array();    
+                for(var i=1; i<=10; i++) {
+                    if(i.done == 'true') {
+                        currList.push(i);
+                    }
+                }
+                let currListidx = currList.length;
+
                 return {
                     payload: {
-                        id : id,
+                        idx : idx,
+                        id : currListidx,
                         do : input,
                         date : date,
                         status : false,
