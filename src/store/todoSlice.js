@@ -122,8 +122,8 @@ let todoSlice = createSlice({
 
             prepare: (idx, input, date) => {
                 var currList = new Array();    
-                for(var i=1; i<=10; i++) {
-                    if(i.done == 'true') {
+                for(var i=1; i<=todoinitialState.lists.length; i++) {
+                    if(todoinitialState.lists[i].done == 'true') {
                         currList.push(i);
                     }
                 }
