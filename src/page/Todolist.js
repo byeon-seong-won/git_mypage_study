@@ -57,7 +57,7 @@ function Todolist () {
                                             <div className='btnWrap'>
                                                 <button onClick={()=> { dispatch(todoActions.pushModi(todolist[i].id,true)); }} className='modibtn xi-pen'></button>
                                                 <button onClick={() =>
-                                                    { dispatch(todoActions.todoRemove(i)) } }>
+                                                    { dispatch(todoActions.todoRemove(todolist[i].id)) } }>
                                                     <span className='xi-close-min'></span>
                                                 </button>
                                             </div>
@@ -82,7 +82,7 @@ function Todolist () {
                                 return (
                                     <div className='list'>
                                         <span className='title'>
-                                            - {todoDonelist[i].do}
+                                            - {todoDonelist[i].do} / {todoDonelist[i].id}
                                         </span>
                                     </div>
                                 )
