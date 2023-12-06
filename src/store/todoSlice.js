@@ -6,72 +6,11 @@ import {createSlice} from '@reduxjs/toolkit'
 
 // todo list 
 const todoinitialState = {
-
     lists : [
-        {
-            id : 0,
-            do : "영화 보기",
-            date : '06-28',
-            status : '',
-            done : '',
-
-        },
-        {
-            id : 1,
-            do : "운동 가기",
-            date : '06-29',
-            status : '',
-            done :'',
-
-        },
-        {
-            id : 2,
-            do : "정처기 공부하기",
-            date : '06-29',
-            status : '',
-            done :'',
-
-        },
-        {
-            id : 3,
-            do : "React 공부하기",
-            date : '06-30',
-            status : '',
-            done : '',
-
-        },
-        {
-            id : 4,
-            do : "vue 공부하기",
-            date : '06-30',
-            status : '',
-            done : '',
-
-        },
-        {
-            id : 5,
-            do : "포트폴리오 업데이트하기",
-            date : '06-30',
-            status : '',
-            done : '',
-
-        },
-        {
-            id : 6,
-            do : "스터디 하기",
-            date : '06-30',
-            status : '',
-            done : '',
-
-        },
-        {
-            id : 7,
-            do : "노래듣기",
-            date : '06-30',
-            status : '',
-            done : '',
-
-        },
+        { id : 0, do : "공부하기", date : '06-28', status : '', done : '' },
+        { id : 1, do : "운동하기", date : '06-28', status : '', done : '' },
+        { id : 2, do : "스터디하기", date : '06-28', status : '', done : '' },
+        { id : 3, do : "프로젝트만들기", date : '06-28', status : '', done : '' },
     ],
     done : []
 };
@@ -116,23 +55,22 @@ let todoSlice = createSlice({
         // 리스트 수정
         todoModi : {
             reducer: (state, action) => {
-                state.lists.splice(action.payload.idx, 1, action.payload)
-
+                state.lists.splice(action.payload.id, 1, action.payload)
             },
 
-            prepare: (idx, input, date) => {
-                var currList = new Array();    
-                for(var i=1; i<=todoinitialState.lists.length; i++) {
-                    if(todoinitialState.lists[i].done == 'true') {
-                        currList.push(i);
-                    }
-                }
-                let currListidx = currList.length;
+            prepare: (id, input, date) => {
+                // var currList = new Array();         
+                // for(var i=0; i<=todoinitialState.lists.length; i++) {
+                //     console.log("완료?" + todoinitialState.lists[i].date + "출력!")
+                //     if(todoinitialState.lists[i].done == 'true') {
+                //         currList.push(i);
+                //     }
+                // }
+                // let currListidx = currList.length;
 
                 return {
                     payload: {
-                        idx : idx,
-                        id : currListidx,
+                        id : id,
                         do : input,
                         date : date,
                         status : false,
