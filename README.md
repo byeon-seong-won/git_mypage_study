@@ -1,17 +1,13 @@
 <h1> My page </h1>
 : React를 활용한 마이페이지 SPA 
 <br>
-[개인 프로젝트: 2023.06 ~ 2023.07]
+[개인 프로젝트: 2023.7 ~ 2023.08]
 <br>
 <img alt="image" src="https://github.com/user-attachments/assets/e2190545-f7cd-499b-8493-554f855d58fd" style="width:200px;"/>
 <img alt="image" src="https://github.com/user-attachments/assets/065f12f2-9821-4c8b-a1c1-930263e5d0e5" style="width:200px;"/>
 <img alt="image" src="https://github.com/user-attachments/assets/3ef240bf-3d26-4f83-a503-d97224ab0aac" style="width:200px;"/>
 
-<br>
-<br>
 
-
-[개인 프로젝트: 2023.7 ~ 2023.08]
 <br>
 <br>
 
